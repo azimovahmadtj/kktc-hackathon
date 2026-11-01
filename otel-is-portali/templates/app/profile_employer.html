@@ -1,0 +1,73 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags %}
+{% block title %}{% translate "Company profile" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div class="page-head__title">
+    <span class="page-icon">{% icon "building" %}</span>
+    <div>
+      <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'dashboard' %}">{% translate "My account" %}</a>{% icon "chevron-right" %}<span>{% translate "Company profile" %}</span></nav>
+      <h1>{% translate "Company profile" %}</h1>
+      <p>{% if mode == "confirm" %}{% translate "Fill in your company details and press Confirm to start publishing job ads." %}{% else %}{% translate "Candidates see this information on your job ads." %}{% endif %}</p>
+    </div>
+  </div>
+  {% if profile.is_verified %}<span class="pill pill--accepted">{% icon "shield" %}{% translate "Verified hotel" %}</span>
+  {% else %}<span class="pill pill--interview">{% icon "clock" %}{% translate "Verification pending" %}</span>{% endif %}
+</div>
+
+{% include "app/_photo_card.html" %}
+
+{% if mode == "view" %}
+<section class="card form-card profile-view">
+  <div class="form-cols">
+    <dl class="form-col info-list">
+      <div class="info"><dt>{% icon "building" %}{% translate "Hotel / company name" %}</dt><dd>{{ profile.company_name }}</dd></div>
+      <div class="info"><dt>{% icon "pin" %}{% translate "City" %}</dt><dd>{{ profile.get_city_display }}</dd></div>
+      <div class="info"><dt>{% icon "phone" %}{% translate "Phone" %}</dt><dd>{{ profile.phone|default:"—" }}</dd></div>
+      <div class="info"><dt>{% icon "link" %}{% translate "Website" %}</dt>
+        <dd>{% if profile.website %}<a href="{{ profile.website }}" target="_blank" rel="noopener noreferrer" class="info__link">{{ profile.website }}</a>{% else %}—{% endif %}</dd></div>
+    </dl>
+    <dl class="form-col info-list">
+      <div class="info"><dt>{% icon "edit" %}{% translate "About the business" %}</dt><dd class="info__text">{{ profile.description|default:"—"|linebreaksbr }}</dd></div>
+      <div class="info"><dt>{% icon "user" %}{% translate "Contact person" %}</dt><dd>{{ user.get_full_name|default:"—" }} · {{ user.email }}</dd></div>
+    </dl>
+  </div>
+  <hr />
+  <div class="form-actions">
+    <a href="{% url 'profile' %}?edit=1" class="btn btn--primary">{% icon "edit" %}{% translate "Add changes" %}</a>
+    <a href="{% url 'my_jobs' %}" class="btn btn--light">{% icon "layers" %}{% translate "My listings" %}</a>
+  </div>
+</section>
+{% else %}
+<form class="card form-card" method="post" novalidate data-dirty-check>
+  {% csrf_token %}
+  <div class="form-cols">
+    <div class="form-col">
+      {% include "app/_field.html" with field=form.company_name icon="building" %}
+      {% include "app/_field.html" with field=form.city icon="pin" select=True %}
+      {% include "app/_field.html" with field=form.phone icon="phone" %}
+      {% include "app/_field.html" with field=form.website icon="link" %}
+    </div>
+    <div class="form-col">
+      {% include "app/_field.html" with field=form.description icon="edit" %}
+    </div>
+  </div>
+  <hr />
+  <p class="form-subtitle">{% translate "Contact person" %}</p>
+  <div class="form-cols">
+    {% include "app/_field.html" with field=form.first_name icon="user" %}
+    {% include "app/_field.html" with field=form.last_name icon="id" %}
+  </div>
+  <hr />
+  <div class="form-actions">
+    {% if mode == "confirm" %}
+      <button type="submit" class="btn btn--primary">{% icon "check" %}{% translate "Confirm" %}</button>
+    {% else %}
+      <button type="submit" class="btn btn--primary">{% icon "save" %}{% translate "Save changes" %}</button>
+      <a href="{% url 'profile' %}" class="btn btn--light">{% icon "x" %}{% translate "Cancel" %}</a>
+    {% endif %}
+    <span class="dirty-note" data-dirty-note hidden>{% translate "You have unsaved changes" %}</span>
+  </div>
+</form>
+{% endif %}
+{% endblock %}

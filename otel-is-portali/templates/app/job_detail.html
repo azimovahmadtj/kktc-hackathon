@@ -1,0 +1,87 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags humanize %}
+{% block title %}{{ job.title }}{% endblock %}
+{% block content %}
+<nav class="crumbs crumbs--solo" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'market' %}">{% translate "Job ads" %}</a>{% icon "chevron-right" %}<span>{{ job.title }}</span></nav>
+
+<section class="job-hero">
+  <img onerror="this.style.visibility='hidden'" src="{{ job.department|dept_photo:1400 }}" alt="" />
+  <div class="job-hero__body">
+    <span class="pill {% if job.employment_type == 'seasonal' %}pill--gold{% else %}pill--white{% endif %}">{{ job.get_employment_type_display }}</span>
+    <h1>{{ job.title }}</h1>
+    <p>{% icon "building" %}{{ job.hotel_name }}{% if job.employer.employer_profile.is_verified %} <span class="verified">{% icon "shield" %}{% translate "Verified" %}</span>{% endif %} · {% icon "pin" %}{{ job.get_city_display }}</p>
+  </div>
+</section>
+
+<div class="grid-main">
+  <div class="stack">
+    <section class="card">
+      <ul class="facts">
+        <li>{% icon "layers" %}<span>{% translate "Department" %}</span><strong>{{ job.get_department_display }}</strong></li>
+        <li>{% icon "chart" %}<span>{% translate "Salary" %}</span><strong>{% if job.salary %}{{ job.salary|money }} / {% translate "month" %}{% else %}{% translate "Negotiable" %}{% endif %}</strong></li>
+        <li>{% icon "star" %}<span>{% translate "Experience" %}</span><strong>{% if job.min_experience %}{% blocktranslate count years=job.min_experience %}{{ years }}+ year{% plural %}{{ years }}+ years{% endblocktranslate %}{% else %}{% translate "Not required" %}{% endif %}</strong></li>
+        <li>{% icon "home" %}<span>{% translate "Accommodation" %}</span><strong>{% if job.housing %}{% translate "Yes" %}{% else %}{% translate "No" %}{% endif %}</strong></li>
+        <li>{% icon "meal" %}<span>{% translate "Meals" %}</span><strong>{% if job.meals %}{% translate "Yes" %}{% else %}{% translate "No" %}{% endif %}</strong></li>
+        <li>{% icon "globe" %}<span>{% translate "Languages" %}</span><strong>{{ job.required_language_labels|join:", "|default:"—" }}</strong></li>
+      </ul>
+    </section>
+    <section class="card">
+      <header class="card__head"><h2>{% icon "file" "card__icon" %}{% translate "About the position" %}</h2><small class="muted">{{ job.created_at|naturalday }}</small></header>
+      <div class="prose">{{ job.description|default:_("No description provided.")|linebreaks }}</div>
+      {% if job.employer.employer_profile.description %}
+        <h3 class="prose-title">{% blocktranslate with hotel=job.hotel_name %}About {{ hotel }}{% endblocktranslate %}</h3>
+        <div class="prose">{{ job.employer.employer_profile.description|linebreaks }}</div>
+      {% endif %}
+    </section>
+  </div>
+
+  <aside class="stack">
+    {% if match %}
+      <section class="card match-card">
+        <header class="card__head"><h2>{% icon "sparkle" "card__icon" %}{% translate "Your match score" %}</h2></header>
+        <div class="match-card__top">
+          <span class="ring ring--lg ring--{{ level }}" style="--p:{{ match.total }}"><span>{{ match.total }}%</span></span>
+          <p>{% if level == "high" %}{% translate "Great fit! Employers see high-scoring candidates first." %}{% elif level == "medium" %}{% translate "Good fit. Improving your profile can raise your score." %}{% else %}{% translate "Low fit for this position. Check the requirements." %}{% endif %}</p>
+        </div>
+        <ul class="weights">
+          {% for r in rows %}<li><span>{{ r.label }}</span><span class="bar"><i style="--w:{{ r.percent }}%"></i></span><b>{{ r.points }}/{{ r.max }}</b></li>{% endfor %}
+        </ul>
+      </section>
+
+      <section class="card apply-card">
+        {% if application %}
+          <h2>{% translate "You applied" %}</h2>
+          <p class="muted">{{ application.created_at|naturaltime }}</p>
+          <span class="pill pill--{{ application.status }}">{{ application.get_status_display }}</span>
+          <a href="{% url 'applications' %}" class="btn btn--light btn--block">{% translate "Track my applications" %}</a>
+        {% elif not profile.is_ready_to_apply %}
+          <h2>{% translate "Complete your profile to apply" %}</h2>
+          <p class="muted">{% translate "Missing:" %} {{ profile.missing_fields|join:", " }}</p>
+          <a href="{% url 'profile' %}" class="btn btn--primary btn--block">{% translate "Complete profile" %}</a>
+        {% else %}
+          <h2>{% translate "Apply for this position" %}</h2>
+          <form method="post" action="{% url 'job_apply' job.pk %}">
+            {% csrf_token %}
+            <label for="{{ apply_form.note.id_for_label }}" class="label">{{ apply_form.note.label }}</label>
+            {{ apply_form.note }}
+            <button type="submit" class="btn btn--primary btn--block">{% icon "send" %}{% translate "Apply now" %}</button>
+            <p class="muted small">{% translate "The hotel will see your profile, CV and match score." %}</p>
+          </form>
+        {% endif %}
+      </section>
+    {% elif is_owner %}
+      <section class="card apply-card">
+        <h2>{% translate "This is your job ad" %}</h2>
+        <p class="muted">{% blocktranslate count counter=app_count %}{{ counter }} application{% plural %}{{ counter }} applications{% endblocktranslate %}</p>
+        <a href="{% url 'applications' %}?job={{ job.pk }}" class="btn btn--primary btn--block">{% translate "View applications" %}</a>
+        <a href="{% url 'job_edit' job.pk %}" class="btn btn--light btn--block">{% icon "edit" %}{% translate "Edit" %}</a>
+      </section>
+    {% else %}
+      <section class="card apply-card">
+        <h2>{% translate "Employer account" %}</h2>
+        <p class="muted">{% translate "Only job seeker accounts can apply for positions." %}</p>
+      </section>
+    {% endif %}
+  </aside>
+</div>
+{% endblock %}

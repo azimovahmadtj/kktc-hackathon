@@ -1,0 +1,49 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags humanize %}
+{% block title %}{% translate "My listings" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'dashboard' %}">{% translate "Dashboard" %}</a>{% icon "chevron-right" %}<span>{% translate "My listings" %}</span></nav>
+    <h1>{% translate "My listings" %}</h1>
+    <p>{% translate "Create, edit and pause your job ads" %}</p>
+  </div>
+  <a href="{% url 'job_create' %}" class="btn btn--primary">{% icon "plus" %}{% translate "New job ad" %}</a>
+</div>
+
+{% if jobs %}
+<div class="job-grid">
+  {% for job in jobs %}
+    <article class="job-card{% if not job.is_active %} is-paused{% endif %}">
+      <div class="job-card__media">
+        <img onerror="this.style.visibility='hidden'" src="{{ job.department|dept_photo }}" alt="" loading="lazy" decoding="async" />
+        <span class="pill {% if job.is_active %}pill--accepted{% else %}pill--muted{% endif %}">{% if job.is_active %}{% translate "Published" %}{% else %}{% translate "Paused" %}{% endif %}</span>
+      </div>
+      <div class="job-card__body">
+        <h3><a href="{% url 'job_detail' job.pk %}">{{ job.title }}</a></h3>
+        <p class="job-card__meta">{% icon "pin" %}{{ job.get_city_display }} · {{ job.get_department_display }} · {{ job.get_employment_type_display }}</p>
+        <div class="job-card__stats">
+          <a href="{% url 'applications' %}?job={{ job.pk }}"><b>{{ job.app_count }}</b> {% translate "applications" %}</a>
+          <a href="{% url 'applications' %}?job={{ job.pk }}&status=sent"><b>{{ job.pending_count }}</b> {% translate "new" %}</a>
+          <span>{{ job.created_at|naturalday }}</span>
+        </div>
+        <div class="job-card__actions">
+          <a href="{% url 'job_edit' job.pk %}" class="btn btn--sm btn--light">{% icon "edit" %}{% translate "Edit" %}</a>
+          <form action="{% url 'job_toggle' job.pk %}" method="post">{% csrf_token %}
+            <button class="btn btn--sm btn--light">{% if job.is_active %}{% icon "pause" %}{% translate "Pause" %}{% else %}{% icon "play" %}{% translate "Publish" %}{% endif %}</button>
+          </form>
+          <form action="{% url 'job_delete' job.pk %}" method="post" data-confirm="{% translate 'Delete this job ad and all its applications?' %}">{% csrf_token %}
+            <button class="btn btn--sm btn--ghost-danger" aria-label="{% translate 'Delete' %}">{% icon "trash" %}</button>
+          </form>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+</div>
+{% else %}
+<section class="card">
+  {% translate "You have no job ads yet" as t1 %}{% translate "Publish your first job ad and start receiving matched candidates." as t2 %}{% translate "New job ad" as t3 %}{% url 'job_create' as curl %}
+  {% include "app/_empty.html" with title=t1 text=t2 action_url=curl action_label=t3 %}
+</section>
+{% endif %}
+{% endblock %}

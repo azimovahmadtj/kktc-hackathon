@@ -1,0 +1,112 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags humanize %}
+{% block title %}{% translate "Dashboard" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><span>{% translate "My account" %}</span>{% icon "chevron-right" %}<span>{% translate "Dashboard" %}</span></nav>
+    <h1>{% blocktranslate with name=user.first_name %}Hello, {{ name }}!{% endblocktranslate %}</h1>
+    <p>{% translate "Your applications and the jobs that fit you best" %}</p>
+  </div>
+  <div class="page-actions">
+    <a href="{% url 'profile' %}" class="btn btn--white">{% icon "user" %}{% translate "Edit profile" %}</a>
+    <a href="{% url 'market' %}?sort=match" class="btn btn--primary">{% icon "search" %}{% translate "Find jobs" %}</a>
+  </div>
+</div>
+
+{% if not profile.is_ready_to_apply %}
+  <div class="banner">
+    {% icon "info" %}
+    <div><strong>{% translate "Complete your profile to apply" %}</strong>
+      <span>{% translate "Missing:" %} {{ profile.missing_fields|join:", " }}</span></div>
+    <a href="{% url 'profile' %}" class="btn btn--sm btn--primary">{% translate "Complete now" %}</a>
+  </div>
+{% endif %}
+
+<div class="kpis">
+  <article class="kpi kpi--blue">
+    <span class="kpi__icon">{% icon "user" %}</span>
+    <div class="kpi__body">
+      <h2>{% translate "Profile completeness" %}</h2>
+      <p class="kpi__num">{{ profile.completeness }}%</p>
+      <p class="kpi__sub"><a href="{% url 'profile' %}">{% translate "Edit profile" %}</a></p>
+    </div>
+    <span class="kpi__ring" style="--p:{{ profile.completeness }}"></span>
+  </article>
+  <article class="kpi kpi--green">
+    <span class="kpi__icon">{% icon "layers" %}</span>
+    <div class="kpi__body">
+      <h2>{% translate "My applications" %}</h2>
+      <p class="kpi__num">{{ total_apps }}</p>
+      <p class="kpi__sub">{% if total_apps %}<a href="{% url 'applications' %}">{% translate "Track status" %}</a>{% else %}{% translate "No applications yet" %}{% endif %}</p>
+    </div>
+    <span class="kpi__bg">{% icon "layers" %}</span>
+  </article>
+  <article class="kpi kpi--purple">
+    <span class="kpi__icon">{% icon "phone" %}</span>
+    <div class="kpi__body">
+      <h2>{% translate "Interview invitations" %}</h2>
+      <p class="kpi__num">{{ interviews }}</p>
+      <p class="kpi__sub">{% blocktranslate %}{{ accepted }} accepted{% endblocktranslate %}</p>
+    </div>
+    <span class="kpi__bg">{% icon "phone" %}</span>
+  </article>
+</div>
+
+<a href="{% url 'ai_match' %}" class="ai-cta">
+  <span class="ai-cta__icon">{% icon "sparkle" %}</span>
+  <span class="ai-cta__text"><strong>{% translate "Find jobs with your CV" %}</strong><small>{% translate "AI reads your CV and picks the open positions that fit you best, with reasons." %}</small></span>
+  <span class="btn btn--sm btn--white">{% translate "Try AI matching" %}{% icon "arrow-right" %}</span>
+</a>
+
+{% include "app/_status_tiles.html" with tiles=status_tiles %}
+
+<div class="grid-main">
+  <section class="card">
+    <header class="card__head">
+      <h2>{% icon "sparkle" "card__icon" %}{% translate "Recommended for you" %}</h2>
+      <a href="{% url 'market' %}?sort=match" class="link-arrow">{% translate "All jobs" %}{% icon "arrow-right" %}</a>
+    </header>
+    {% if recommended %}
+      <ul class="rows">
+        {% for job in recommended %}
+          <li class="row">
+            <span class="avatar avatar--hotel">{{ job.hotel_initials }}</span>
+            <div class="row__main">
+              <a href="{% url 'job_detail' job.pk %}"><strong>{{ job.title }}</strong></a>
+              <small>{{ job.hotel_name }} · {{ job.get_city_display }} · {{ job.get_employment_type_display }}{% if job.housing %} · {% translate "Accommodation" %}{% endif %}</small>
+            </div>
+            <span class="score score--{{ job.match.level }}">{{ job.match.total }}</span>
+            <a href="{% url 'job_detail' job.pk %}" class="btn btn--sm btn--light">{% translate "View" %}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {% translate "No recommendations yet" as t1 %}{% translate "Fill in your department and languages to get matching jobs." as t2 %}{% translate "Complete profile" as t3 %}{% url 'profile' as purl %}
+      {% include "app/_empty.html" with title=t1 text=t2 action_url=purl action_label=t3 %}
+    {% endif %}
+  </section>
+  {% include "app/_score_card.html" %}
+</div>
+
+<section class="card">
+  <header class="card__head">
+    <h2>{% icon "clock" "card__icon" %}{% translate "Latest applications" %}</h2>
+    <a href="{% url 'applications' %}" class="link-arrow">{% translate "View all" %}{% icon "arrow-right" %}</a>
+  </header>
+  {% if recent %}
+    <ul class="rows">
+      {% for app in recent %}
+        <li class="row">
+          <span class="avatar avatar--hotel">{{ app.job.hotel_initials }}</span>
+          <div class="row__main"><a href="{% url 'job_detail' app.job.pk %}"><strong>{{ app.job.title }}</strong></a><small>{{ app.job.hotel_name }} · {{ app.created_at|naturaltime }}</small></div>
+          <span class="score score--{{ app.score|score_level }}">{{ app.score }}</span>
+          <span class="pill pill--{{ app.status }}">{{ app.get_status_display }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty-line">{% icon "briefcase" %}{% url 'market' as market_url %}{% blocktranslate %}No applications yet. Browse the <a href="{{ market_url }}">job ads</a> and apply with one click.{% endblocktranslate %}</p>
+  {% endif %}
+</section>
+{% endblock %}

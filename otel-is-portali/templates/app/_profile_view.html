@@ -1,0 +1,26 @@
+{% load i18n portal_tags %}
+<section class="card form-card profile-view">
+  <div class="form-cols">
+    <dl class="form-col info-list">
+      <div class="info"><dt>{% icon "phone" %}{% translate "Phone" %}</dt><dd>{{ profile.phone|default:"—" }}</dd></div>
+      <div class="info"><dt>{% icon "briefcase" %}{% translate "Experience" %}</dt>
+        <dd>{% blocktranslate count years=profile.experience_years %}{{ years }} yr{% plural %}{{ years }} yrs{% endblocktranslate %}</dd></div>
+      <div class="info"><dt>{% icon "layers" %}{% translate "Department" %}</dt><dd>{{ profile.get_department_display|default:"—" }}</dd></div>
+      <div class="info"><dt>{% icon "calendar" %}{% translate "Availability" %}</dt><dd>{{ profile.get_availability_display }}</dd></div>
+      <div class="info"><dt>{% icon "bed" %}{% translate "Needs accommodation" %}</dt><dd>{% if profile.needs_accommodation %}{% translate "Yes" %}{% else %}{% translate "No" %}{% endif %}</dd></div>
+    </dl>
+    <dl class="form-col info-list">
+      <div class="info"><dt>{% icon "globe" %}{% translate "Languages" %}</dt>
+        <dd class="tags">{% for l in profile.language_labels %}<span class="tag tag--blue">{{ l }}</span>{% empty %}—{% endfor %}</dd></div>
+      <div class="info"><dt>{% icon "edit" %}{% translate "Short introduction" %}</dt><dd class="info__text">{{ profile.bio|default:"—"|linebreaksbr }}</dd></div>
+      <div class="info"><dt>{% icon "paperclip" %}CV</dt>
+        <dd>{% if profile.cv %}<a href="{% url 'my_cv' %}" target="_blank" rel="noopener" class="info__link">{% icon "file" %}{{ profile.cv_filename }}</a>{% else %}—{% endif %}</dd></div>
+    </dl>
+  </div>
+  <hr />
+  <div class="form-actions">
+    <a href="{% url 'profile' %}?edit=1" class="btn btn--primary">{% icon "edit" %}{% translate "Add changes" %}</a>
+    <a href="{% url 'market' %}?sort=match" class="btn btn--light">{% icon "briefcase" %}{% translate "Job ads" %}</a>
+    {% if profile.cv %}<a href="{% url 'ai_match' %}" class="btn btn--light form-actions__ai">{% icon "sparkle" %}{% translate "Find jobs with your CV" %}</a>{% endif %}
+  </div>
+</section>

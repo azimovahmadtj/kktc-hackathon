@@ -1,0 +1,5 @@
+Django>=5.2,<6.0
+anthropic>=2.3,<3
+pypdf>=5
+# Only needed for PostgreSQL (DATABASE_URL=postgres://...):
+psycopg[binary]>=3.2,<4

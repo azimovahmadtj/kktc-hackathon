@@ -1,0 +1,15 @@
+{% load i18n portal_tags %}
+<section class="card">
+  <header class="card__head">
+    <h2>{% icon "chart" "card__icon" %}{% translate "Application status" %}</h2>
+    <p class="card__hint">{% translate "Sent • Reviewed • Interview • Accepted / Rejected" %}</p>
+  </header>
+  <div class="status-grid">
+    {% for s in tiles %}
+      <a href="{% url 'applications' %}?status={{ s.key }}" class="status status--{{ s.key }}{% if active == s.key %} is-active{% endif %}">
+        <span class="status__label">{% icon s.icon %}{{ s.label }}</span>
+        <strong class="status__num">{{ s.count }}</strong>
+      </a>
+    {% endfor %}
+  </div>
+</section>

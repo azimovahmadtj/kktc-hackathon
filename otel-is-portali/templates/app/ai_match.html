@@ -1,0 +1,106 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags humanize %}
+{% block title %}{% translate "AI matching" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'dashboard' %}">{% translate "Dashboard" %}</a>{% icon "chevron-right" %}<span>{% translate "AI matching" %}</span></nav>
+    <h1>{% translate "Find jobs with your CV" %}</h1>
+    <p>{% if claude %}{% translate "AI reads your CV and picks the open positions that fit you best, with reasons." %}{% else %}{% translate "We read your CV and pick the open positions that fit you best, with reasons." %}{% endif %}</p>
+  </div>
+</div>
+
+<section class="ai-hero">
+  <div class="ai-hero__text">
+    <span class="ai-badge">{% icon "sparkle" %}{% if claude %}Claude AI{% else %}{% translate "Smart matching" %}{% endif %}</span>
+    <h2>{% if analysis %}{% translate "Run a new analysis" %}{% else %}{% translate "Let AI find your best matches" %}{% endif %}</h2>
+    <ul class="ai-steps">
+      <li>{% icon "file" %}{% translate "Reads your CV (PDF or DOCX)" %}</li>
+      <li>{% icon "search" %}{% translate "Compares it with every open job ad" %}</li>
+      <li>{% icon "check" %}{% translate "Explains why each job fits and what is missing" %}</li>
+    </ul>
+  </div>
+  <div class="ai-hero__action">
+    {% if not profile.cv %}
+      <p class="ai-note">{% icon "info" %}{% translate "Upload your CV on your profile first." %}</p>
+      <a href="{% url 'profile' %}" class="btn btn--white btn--lg">{% icon "upload" %}{% translate "Upload CV" %}</a>
+    {% else %}
+      <p class="ai-file">{% icon "paperclip" %}{{ profile.cv_filename }}</p>
+      <form method="post" action="{% url 'ai_match_run' %}" data-ai-run>
+        {% csrf_token %}
+        <button type="submit" class="btn btn--white btn--lg" data-busy-label="{% if claude %}{% translate 'Analysing your CV… (up to a minute)' %}{% else %}{% translate 'Analysing your CV…' %}{% endif %}">
+          {% icon "sparkle" %}<span>{% if analysis %}{% translate "Analyse again" %}{% else %}{% translate "Analyse my CV" %}{% endif %}</span>
+        </button>
+      </form>
+      {% if stale %}<p class="ai-note ai-note--warn">{% translate "Your CV changed since the last analysis." %}</p>{% endif %}
+      {% if not claude %}<p class="ai-engine">{% translate "Free analysis on our server: reads your CV in Turkish, English and Russian. With a Claude API key the analysis becomes even smarter." %}</p>{% endif %}
+    {% endif %}
+  </div>
+</section>
+
+{% if analysis %}
+  {% with facts=analysis.result.candidate %}
+  <div class="grid-main">
+    <div class="stack">
+      <section class="card">
+        <header class="card__head">
+          <h2>{% icon "briefcase" "card__icon" %}{% translate "Jobs that match your CV" %}</h2>
+          <small class="muted">{% blocktranslate with ago=analysis.created_at|naturaltime %}Analysed {{ ago }}{% endblocktranslate %}</small>
+        </header>
+        {% if matches %}
+          <ol class="ai-matches">
+            {% for m in matches %}
+              <li class="ai-match">
+                <div class="ai-match__head">
+                  <span class="ai-match__rank">{{ forloop.counter }}</span>
+                  <div class="ai-match__title">
+                    <a href="{% url 'job_detail' m.job.pk %}"><strong>{{ m.job.title }}</strong></a>
+                    <small>{{ m.job.hotel_name }} · {{ m.job.get_city_display }} · {{ m.job.get_employment_type_display }}{% if m.job.salary %} · {{ m.job.salary|money }}/{% translate "month" %}{% endif %}</small>
+                  </div>
+                  <span class="ring ring--{{ m.level }}" style="--p:{{ m.fit_score }}" title="{% translate 'Match score' %}"><span>{{ m.fit_score }}%</span></span>
+                </div>
+                <div class="ai-match__body">
+                  <ul class="ai-points ai-points--good">{% for r in m.reasons %}<li>{% icon "check" %}{{ r }}</li>{% endfor %}</ul>
+                  {% if m.gaps %}<ul class="ai-points ai-points--gap">{% for g in m.gaps %}<li>{% icon "info" %}{{ g }}</li>{% endfor %}</ul>{% endif %}
+                </div>
+                <div class="ai-match__foot">
+                  {% if analysis.model != "local" %}<span class="muted small">{% translate "Platform match score" %}: <b class="score score--{{ m.platform_score|score_level }}">{{ m.platform_score }}</b></span>{% else %}<span></span>{% endif %}
+                  {% if m.job.pk in applied %}<span class="pill pill--accepted">{% icon "check" %}{% translate "Applied" %}</span>
+                  {% else %}<a href="{% url 'job_detail' m.job.pk %}" class="btn btn--sm btn--primary">{% translate "View and apply" %}</a>{% endif %}
+                </div>
+              </li>
+            {% endfor %}
+          </ol>
+        {% else %}
+          {% translate "No strong matches right now" as t1 %}{% translate "New job ads are added every week. Try again later or browse all jobs." as t2 %}{% translate "Browse jobs" as t3 %}{% url 'market' as murl %}
+          {% include "app/_empty.html" with title=t1 text=t2 action_url=murl action_label=t3 %}
+        {% endif %}
+      </section>
+    </div>
+
+    <aside class="stack">
+      <section class="card">
+        <header class="card__head"><h2>{% icon "user" "card__icon" %}{% translate "What we found in your CV" %}</h2></header>
+        {% if facts.summary %}<p class="ai-summary">{{ facts.summary }}</p>{% endif %}
+        {% if facts.skills %}<div class="tags ai-skills">{% for s in facts.skills|slice:":10" %}<span class="tag tag--blue">{{ s }}</span>{% endfor %}</div>{% endif %}
+        {% if suggestions %}
+          <form method="post" action="{% url 'ai_apply_profile' analysis.pk %}" class="ai-suggest">
+            {% csrf_token %}
+            <p class="form-subtitle">{% translate "Update my profile with:" %}</p>
+            {% for s in suggestions %}
+              <label class="check ai-suggest__row{% if s.same %} is-same{% endif %}">
+                <input type="checkbox" name="fields" value="{{ s.key }}"{% if not s.same %} checked{% endif %}{% if s.same %} disabled{% endif %} />
+                <span class="check__box"></span>
+                <span><b>{{ s.label }}:</b> {{ s.value }}{% if s.same %} <em class="muted">({% translate "already in profile" %})</em>{% endif %}</span>
+              </label>
+            {% endfor %}
+            <button type="submit" class="btn btn--primary btn--block">{% icon "save" %}{% translate "Apply to my profile" %}</button>
+          </form>
+        {% endif %}
+      </section>
+      <p class="muted small ai-disclaimer">{% translate "Automatic suggestions can contain mistakes. Check them before applying." %}</p>
+    </aside>
+  </div>
+  {% endwith %}
+{% endif %}
+{% endblock %}

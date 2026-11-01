@@ -1,0 +1,39 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags %}
+{% block title %}{% translate "Job ads" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'dashboard' %}">{% translate "Dashboard" %}</a>{% icon "chevron-right" %}<span>{% translate "Job ads" %}</span></nav>
+    <h1>{% translate "Job ads" %}</h1>
+    <p>{% blocktranslate count counter=total %}{{ counter }} open position in Northern Cyprus{% plural %}{{ counter }} open positions in Northern Cyprus{% endblocktranslate %}</p>
+  </div>
+</div>
+
+<form class="card filterbar" method="get" role="search">
+  <div class="filterbar__q">{% icon "search" %}<input type="search" name="q" value="{{ form.q.value|default:'' }}" placeholder="{% translate 'Position, hotel or keyword' %}" aria-label="{% translate 'Search' %}" /></div>
+  <div class="select">{{ form.department }}</div>
+  <div class="select">{{ form.city }}</div>
+  <div class="select">{{ form.type }}</div>
+  {% if user.is_candidate %}
+    <div class="select"><select name="sort" aria-label="{% translate 'Sort' %}">
+      <option value="new">{% translate "Newest" %}</option>
+      <option value="match"{% if request.GET.sort == "match" %} selected{% endif %}>{% translate "Best match" %}</option>
+    </select></div>
+  {% endif %}
+  <label class="check filterbar__check">{{ form.housing }}<span class="check__box"></span>{% translate "With accommodation" %}</label>
+  <button class="btn btn--primary" type="submit">{% icon "search" %}{% translate "Search" %}</button>
+</form>
+
+{% if page_obj.object_list %}
+  <div class="job-grid">
+    {% for job in page_obj %}{% include "app/_job_card.html" %}{% endfor %}
+  </div>
+  {% include "app/_pagination.html" %}
+{% else %}
+  <section class="card">
+    {% translate "No job ads match your search" as t1 %}{% translate "Try removing some filters." as t2 %}{% translate "Clear filters" as t3 %}{% url 'market' as murl %}
+    {% include "app/_empty.html" with title=t1 text=t2 action_url=murl action_label=t3 %}
+  </section>
+{% endif %}
+{% endblock %}

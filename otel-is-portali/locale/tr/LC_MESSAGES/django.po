@@ -1,0 +1,1589 @@
+# Turkish translations for Otel İş Portalı.
+# Edit msgstr values, then run: python tools/compile_messages.py
+msgid ""
+msgstr ""
+"Project-Id-Version: otel-is-portali 1.0\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: candidate_dashboard.html
+#, python-format
+msgid "%(accepted)s accepted"
+msgstr "%(accepted)s kabul edildi"
+
+#: employer_dashboard.html
+#, python-format
+msgid "%(apps_this_week)s in the last 7 days"
+msgstr "Son 7 günde %(apps_this_week)s"
+
+#: job_detail.html
+#, python-format
+msgid "%(counter)s application"
+msgid_plural "%(counter)s applications"
+msgstr[0] "%(counter)s başvuru"
+msgstr[1] "%(counter)s başvuru"
+
+#: market.html
+#, python-format
+msgid "%(counter)s open position in Northern Cyprus"
+msgid_plural "%(counter)s open positions in Northern Cyprus"
+msgstr[0] "Kuzey Kıbrıs'ta %(counter)s açık pozisyon"
+msgstr[1] "Kuzey Kıbrıs'ta %(counter)s açık pozisyon"
+
+#: employer_dashboard.html
+#, python-format
+msgid "%(total_jobs)s ads in total"
+msgstr "toplam %(total_jobs)s ilan"
+
+#: employer_dashboard.html
+#, python-format
+msgid "%(years)s year experience"
+msgid_plural "%(years)s years experience"
+msgstr[0] "%(years)s yıl deneyim"
+msgstr[1] "%(years)s yıl deneyim"
+
+#: local_matcher.py
+#, python-format
+msgid "%(years)s years of experience"
+msgstr "%(years)s yıl deneyim"
+
+#: local_matcher.py
+#, python-format
+msgid "%(years)s years of experience (required: %(req)s)"
+msgstr "%(years)s yıl deneyim (gerekli: %(req)s)"
+
+#: _profile_view.html applications_employer.html
+#, python-format
+msgid "%(years)s yr"
+msgid_plural "%(years)s yrs"
+msgstr[0] "%(years)s yıl"
+msgstr[1] "%(years)s yıl"
+
+#: job_detail.html
+#, python-format
+msgid "%(years)s+ year"
+msgid_plural "%(years)s+ years"
+msgstr[0] "%(years)s+ yıl"
+msgstr[1] "%(years)s+ yıl"
+
+#: job_detail.html
+#, python-format
+msgid "About %(hotel)s"
+msgstr "%(hotel)s hakkında"
+
+#: profile_employer.html
+msgid "About the business"
+msgstr "İşletme hakkında"
+
+#: models.py
+msgid "about the business"
+msgstr "işletme hakkında"
+
+#: job_detail.html
+msgid "About the position"
+msgstr "Pozisyon hakkında"
+
+#: applications_candidate.html models.py
+msgid "Accepted"
+msgstr "Kabul edildi"
+
+#: _job_card.html candidate_dashboard.html job_detail.html scoring.py
+msgid "Accommodation"
+msgstr "Konaklama"
+
+#: base_auth.html
+msgid "Accommodation and meal filters"
+msgstr "Konaklama ve yemek filtreleri"
+
+#: local_matcher.py
+msgid "Accommodation is provided"
+msgstr "Konaklama sağlanıyor"
+
+#: models.py
+msgid "accommodation provided"
+msgstr "konaklama sağlanıyor"
+
+#: base.html
+msgid "Account"
+msgstr "Hesap"
+
+#: models.py
+msgid "account type"
+msgstr "hesap türü"
+
+#: _profile_view.html profile_employer.html
+msgid "Add changes"
+msgstr "Değişiklik yap"
+
+#: ai.py local_matcher.py
+msgid "AI analysis supports PDF and DOCX files. Please upload your CV in one of these formats."
+msgstr "Yapay zekâ analizi PDF ve DOCX dosyalarını destekler. Lütfen CV'nizi bu formatlardan birinde yükleyin."
+
+#: ai_match.html context_processors.py
+msgid "AI matching"
+msgstr "AI eşleştirme"
+
+#: ai.py
+msgid "AI matching is not configured yet (missing ANTHROPIC_API_KEY)."
+msgstr "AI eşleştirme henüz yapılandırılmadı (ANTHROPIC_API_KEY eksik)."
+
+#: ai_match.html candidate_dashboard.html
+msgid "AI reads your CV and picks the open positions that fit you best, with reasons."
+msgstr "Yapay zekâ CV'nizi okur ve size en uygun açık pozisyonları gerekçeleriyle seçer."
+
+#: applications_candidate.html applications_employer.html
+msgid "All"
+msgstr "Tümü"
+
+#: employer_dashboard.html
+msgid "All applications"
+msgstr "Tüm başvurular"
+
+#: forms.py
+msgid "All departments"
+msgstr "Tüm departmanlar"
+
+#: applications_employer.html
+msgid "All job ads"
+msgstr "Tüm ilanlar"
+
+#: candidate_dashboard.html
+msgid "All jobs"
+msgstr "Tüm ilanlar"
+
+#: forms.py
+msgid "All regions"
+msgstr "Tüm bölgeler"
+
+#: forms.py
+msgid "All types"
+msgstr "Tüm türler"
+
+#: register.html
+msgid "Already have an account?"
+msgstr "Zaten hesabınız var mı?"
+
+#: ai_match.html
+msgid "already in profile"
+msgstr "profilde zaten var"
+
+#: forms.py
+msgid "An account with this email already exists."
+msgstr "Bu e-posta ile kayıtlı bir hesap zaten var."
+
+#: ai_match.html
+msgid "Analyse again"
+msgstr "Yeniden analiz et"
+
+#: ai_match.html
+msgid "Analyse my CV"
+msgstr "CV'mi analiz et"
+
+#: ai_match.html
+#, python-format
+msgid "Analysed %(ago)s"
+msgstr "Analiz: %(ago)s"
+
+#: ai_match.html
+msgid "Analysing your CV…"
+msgstr "CV'niz analiz ediliyor…"
+
+#: ai_match.html
+msgid "Analysing your CV… (up to a minute)"
+msgstr "CV'niz analiz ediliyor… (bir dakikaya kadar)"
+
+#: models.py
+msgid "Any type"
+msgstr "Hepsi uygun"
+
+#: models.py
+msgid "application"
+msgstr "başvuru"
+
+#: _status_tiles.html
+msgid "Application status"
+msgstr "Başvuru durumu"
+
+#: applications_employer.html context_processors.py
+msgid "Applications"
+msgstr "Başvurular"
+
+#: models.py my_jobs.html
+msgid "applications"
+msgstr "başvuru"
+
+#: _job_card.html ai_match.html
+msgid "Applied"
+msgstr "Başvuruldu"
+
+#: applications_candidate.html
+#, python-format
+msgid "Applied %(date)s"
+msgstr "Başvuru: %(date)s"
+
+#: job_detail.html
+msgid "Apply for this position"
+msgstr "Bu pozisyona başvurun"
+
+#: job_detail.html
+msgid "Apply now"
+msgstr "Hemen başvur"
+
+#: applications_candidate.html
+msgid "Apply to job ads and follow their status here."
+msgstr "İlanlara başvurun ve durumlarını buradan takip edin."
+
+#: ai_match.html
+msgid "Apply to my profile"
+msgstr "Profilime uygula"
+
+#: models.py
+msgid "Arabic"
+msgstr "Arapça"
+
+#: forms.py
+msgid "At least 8 characters, not only numbers."
+msgstr "En az 8 karakter, yalnızca rakam olmamalı."
+
+#: ai_match.html
+msgid "Automatic suggestions can contain mistakes. Check them before applying."
+msgstr "Otomatik öneriler hata içerebilir. Uygulamadan önce kontrol edin."
+
+#: _profile_view.html scoring.py views.py
+msgid "Availability"
+msgstr "Uygunluk"
+
+#: job_form.html
+msgid "Benefits"
+msgstr "Yan haklar"
+
+#: applications_employer.html forms.py market.html
+msgid "Best match"
+msgstr "En uyumlu"
+
+#: employer_dashboard.html
+msgid "Best-matching candidates waiting for review"
+msgstr "İncelenmeyi bekleyen en uyumlu adaylar"
+
+#: ai_match.html applications_candidate.html applications_employer.html candidate_dashboard.html employer_dashboard.html job_detail.html job_form.html market.html my_jobs.html profile_candidate.html profile_employer.html
+msgid "Breadcrumb"
+msgstr "Sayfa yolu"
+
+#: ai_match.html applications_candidate.html
+msgid "Browse jobs"
+msgstr "İlanlara göz at"
+
+#: job_form.html profile_candidate.html profile_employer.html
+msgid "Cancel"
+msgstr "İptal"
+
+#: context_processors.py
+msgid "Candidate portal"
+msgstr "Aday portalı"
+
+#: models.py
+msgid "candidate profile"
+msgstr "aday profili"
+
+#: models.py
+msgid "candidate profiles"
+msgstr "aday profilleri"
+
+#: profile_employer.html
+msgid "Candidates see this information on your job ads."
+msgstr "Adaylar bu bilgileri ilanlarınızda görür."
+
+#: employer_dashboard.html
+msgid "Candidates will appear here when new applications arrive."
+msgstr "Yeni başvurular geldiğinde adaylar burada görünecek."
+
+#: _photo_card.html
+msgid "Change photo"
+msgstr "Fotoğrafı değiştir"
+
+#: profile_candidate.html
+msgid "choose a file"
+msgstr "seçin"
+
+#: forms.py
+msgid "Choose a photo to upload."
+msgstr "Yüklemek için bir fotoğraf seçin."
+
+#: forms.py profile_employer.html
+msgid "City"
+msgstr "Şehir"
+
+#: models.py
+msgid "city"
+msgstr "şehir"
+
+#: market.html
+msgid "Clear filters"
+msgstr "Filtreleri temizle"
+
+#: job_form.html
+msgid "Clear requirements give candidates more accurate match scores."
+msgstr "Net gereksinimler adaylara daha doğru uyum skorları sağlar."
+
+#: base.html base_auth.html
+msgid "Close"
+msgstr "Kapat"
+
+#: profile_employer.html
+msgid "Company profile"
+msgstr "Şirket profili"
+
+#: ai_match.html
+msgid "Compares it with every open job ad"
+msgstr "Tüm açık ilanlarla karşılaştırır"
+
+#: candidate_dashboard.html
+msgid "Complete now"
+msgstr "Şimdi tamamla"
+
+#: candidate_dashboard.html job_detail.html
+msgid "Complete profile"
+msgstr "Profili tamamla"
+
+#: views.py
+#, python-format
+msgid "Complete your profile before applying. Missing: %(fields)s"
+msgstr "Başvurmadan önce profilinizi tamamlayın. Eksik: %(fields)s"
+
+#: candidate_dashboard.html job_detail.html
+msgid "Complete your profile to apply"
+msgstr "Başvurmak için profilinizi tamamlayın"
+
+#: profile_candidate.html profile_employer.html
+msgid "Confirm"
+msgstr "Onayla"
+
+#: profile_employer.html
+msgid "Contact person"
+msgstr "Yetkili kişi"
+
+#: ai.py
+msgid "Could not connect to the AI service. Please try again later."
+msgstr "Yapay zekâ servisine bağlanılamadı. Lütfen daha sonra tekrar deneyin."
+
+#: register.html
+msgid "Create account"
+msgstr "Hesap oluştur"
+
+#: register.html
+msgid "Create your account"
+msgstr "Hesabınızı oluşturun"
+
+#: my_jobs.html
+msgid "Create, edit and pause your job ads"
+msgstr "İlanlarınızı oluşturun, düzenleyin ve durdurun"
+
+#: profile_candidate.html
+msgid "Current:"
+msgstr "Şu anki:"
+
+#: forms.py models.py
+msgid "CV"
+msgstr "CV"
+
+#: models.py
+msgid "CV analyses"
+msgstr "CV analizleri"
+
+#: models.py
+msgid "CV analysis"
+msgstr "CV analizi"
+
+#: ai_match.html applications_candidate.html applications_employer.html base.html candidate_dashboard.html context_processors.py employer_dashboard.html market.html my_jobs.html
+msgid "Dashboard"
+msgstr "Panel"
+
+#: my_jobs.html
+msgid "Delete"
+msgstr "Sil"
+
+#: _photo_card.html
+msgid "Delete photo"
+msgstr "Fotoğrafı sil"
+
+#: my_jobs.html
+msgid "Delete this job ad and all its applications?"
+msgstr "Bu ilan ve tüm başvuruları silinsin mi?"
+
+#: _photo_card.html
+msgid "Delete your profile photo?"
+msgstr "Profil fotoğrafınız silinsin mi?"
+
+#: _profile_view.html job_detail.html models.py scoring.py views.py
+msgid "Department"
+msgstr "Departman"
+
+#: models.py
+msgid "department"
+msgstr "departman"
+
+#: models.py
+msgid "description"
+msgstr "açıklama"
+
+#: login.html
+msgid "Don't have an account?"
+msgstr "Hesabınız yok mu?"
+
+#: views.py
+msgid "Done! We found jobs that match your CV."
+msgstr "Tamam! CV'nize uygun ilanlar bulundu."
+
+#: profile_candidate.html
+msgid "Drag and drop, or select from your computer. (PDF, DOC, DOCX · max 5 MB)"
+msgstr "Sürükleyip bırakabilir veya bilgisayarınızdan seçebilirsiniz. (PDF, DOC, DOCX · maks. 5 MB)"
+
+#: forms.py
+msgid "Duties, working hours, benefits…"
+msgstr "Görevler, çalışma saatleri, yan haklar…"
+
+#: forms.py
+msgid "e.g. Receptionist"
+msgstr "örn. Resepsiyonist"
+
+#: _score_card.html
+msgid "Each candidate gets 0–100 points for every job ad they apply to."
+msgstr "Her aday, başvurduğu her ilan için 0–100 arası puan alır."
+
+#: job_detail.html my_jobs.html
+msgid "Edit"
+msgstr "Düzenle"
+
+#: job_form.html
+msgid "Edit job ad"
+msgstr "İlanı düzenle"
+
+#: candidate_dashboard.html
+msgid "Edit profile"
+msgstr "Profili düzenle"
+
+#: forms.py
+msgid "Email"
+msgstr "E-posta"
+
+#: models.py
+msgid "email address"
+msgstr "e-posta adresi"
+
+#: forms.py
+msgid "Email or password is incorrect."
+msgstr "E-posta veya şifre hatalı."
+
+#: models.py
+msgid "Employer"
+msgstr "İşveren"
+
+#: job_detail.html
+msgid "Employer account"
+msgstr "İşveren hesabı"
+
+#: context_processors.py
+msgid "Employer portal"
+msgstr "İşveren portalı"
+
+#: models.py
+msgid "employer profile"
+msgstr "işveren profili"
+
+#: models.py
+msgid "employer profiles"
+msgstr "işveren profilleri"
+
+#: models.py
+msgid "employment type"
+msgstr "çalışma türü"
+
+#: models.py settings.py
+msgid "English"
+msgstr "İngilizce"
+
+#: forms.py
+msgid "Enter a valid phone number."
+msgstr "Geçerli bir telefon numarası girin."
+
+#: models.py
+msgid "Entertainment"
+msgstr "Animasyon"
+
+#: _profile_view.html job_detail.html scoring.py views.py
+msgid "Experience"
+msgstr "Deneyim"
+
+#: models.py
+msgid "experience (years)"
+msgstr "deneyim (yıl)"
+
+#: ai_match.html
+msgid "Explains why each job fits and what is missing"
+msgstr "Her ilanın neden uygun olduğunu ve neyin eksik olduğunu açıklar"
+
+#: profile_employer.html
+msgid "Fill in your company details and press Confirm to start publishing job ads."
+msgstr "Şirket bilgilerinizi doldurun ve ilan yayınlamaya başlamak için Onayla'ya basın."
+
+#: candidate_dashboard.html
+msgid "Fill in your department and languages to get matching jobs."
+msgstr "Uygun ilanlar için departmanınızı ve dillerinizi doldurun."
+
+#: profile_candidate.html
+msgid "Fill in your details and press Confirm to start seeing matching jobs."
+msgstr "Bilgilerinizi doldurun ve size uygun ilanları görmek için Onayla'ya basın."
+
+#: register.html
+msgid "Find a job, apply in one click"
+msgstr "İş bul, tek tıkla başvur"
+
+#: applications_candidate.html candidate_dashboard.html
+msgid "Find jobs"
+msgstr "İş ara"
+
+#: _profile_view.html ai_match.html candidate_dashboard.html
+msgid "Find jobs with your CV"
+msgstr "CV ile iş bul"
+
+#: forms.py
+msgid "First name"
+msgstr "Adı"
+
+#: local_matcher.py
+#, python-format
+msgid "Fits your availability: %(type)s"
+msgstr "Çalışma tercihinize uygun: %(type)s"
+
+#: models.py
+msgid "Food & Beverage"
+msgstr "Yiyecek & İçecek"
+
+#: ai_match.html
+msgid "Free analysis on our server: reads your CV in Turkish, English and Russian. With a Claude API key the analysis becomes even smarter."
+msgstr "Sunucumuzda ücretsiz analiz: Türkçe, İngilizce ve Rusça CV'leri okur. Claude API anahtarı eklenirse analiz daha da akıllı olur."
+
+#: register.html
+msgid "Free for job seekers. Takes about a minute."
+msgstr "İş arayanlar için ücretsiz. Yaklaşık bir dakika sürer."
+
+#: models.py
+msgid "Front Office"
+msgstr "Ön Büro"
+
+#: models.py
+msgid "Full-time"
+msgstr "Tam zamanlı"
+
+#: models.py
+msgid "German"
+msgstr "Almanca"
+
+#: job_detail.html
+msgid "Good fit. Improving your profile can raise your score."
+msgstr "İyi uyum. Profilinizi geliştirerek skorunuzu artırabilirsiniz."
+
+#: job_detail.html
+msgid "Great fit! Employers see high-scoring candidates first."
+msgstr "Harika uyum! İşverenler yüksek skorlu adayları önce görür."
+
+#: models.py
+msgid "Greek"
+msgstr "Yunanca"
+
+#: candidate_dashboard.html
+#, python-format
+msgid "Hello, %(name)s!"
+msgstr "Merhaba, %(name)s!"
+
+#: _score_card.html
+msgid "High"
+msgstr "Yüksek"
+
+#: base.html base_auth.html
+msgid "Home page"
+msgstr "Ana sayfa"
+
+#: forms.py profile_employer.html
+msgid "Hotel / company name"
+msgstr "Otel / şirket adı"
+
+#: models.py
+msgid "hotel / company name"
+msgstr "otel / şirket adı"
+
+#: apps.py
+msgid "Hotel Job Portal"
+msgstr "Otel İş Portalı"
+
+#: models.py
+msgid "Housekeeping"
+msgstr "Housekeeping"
+
+#: _score_card.html
+msgid "How is the match score calculated?"
+msgstr "Uyum skoru nasıl hesaplanır?"
+
+#: forms.py
+msgid "I accept the terms of use and privacy policy"
+msgstr "Kullanım koşullarını ve gizlilik politikasını kabul ediyorum"
+
+#: forms.py
+msgid "I am a"
+msgstr "Hesap türü"
+
+#: local_matcher.py
+#, python-format
+msgid "I am a hospitality professional in %(dept)s with %(years)s years of experience."
+msgstr "%(dept)s alanında %(years)s yıl deneyimli bir turizm profesyoneliyim."
+
+#: local_matcher.py
+msgid "I am looking for a job in the hospitality industry in Northern Cyprus."
+msgstr "Kuzey Kıbrıs'ta turizm sektöründe iş arıyorum."
+
+#: local_matcher.py
+#, python-format
+msgid "I speak %(langs)s."
+msgstr "Bildiğim diller: %(langs)s."
+
+#: admin.py
+msgid "Important dates"
+msgstr "Önemli tarihler"
+
+#: applications_candidate.html models.py
+msgid "Interview"
+msgstr "Mülakat"
+
+#: candidate_dashboard.html
+msgid "Interview invitations"
+msgstr "Mülakat davetleri"
+
+#: applications_employer.html
+msgid "Job ad"
+msgstr "İlan"
+
+#: models.py
+msgid "job ad"
+msgstr "iş ilanı"
+
+#: views.py
+msgid "Job ad deleted."
+msgstr "İlan silindi."
+
+#: views.py
+msgid "Job ad paused."
+msgstr "İlan durduruldu."
+
+#: views.py
+msgid "Job ad published."
+msgstr "İlan yayınlandı."
+
+#: views.py
+msgid "Job ad updated."
+msgstr "İlan güncellendi."
+
+#: _profile_view.html context_processors.py job_detail.html market.html
+msgid "Job ads"
+msgstr "İş ilanları"
+
+#: models.py
+msgid "job ads"
+msgstr "iş ilanları"
+
+#: models.py
+msgid "Job seeker"
+msgstr "İş arayan"
+
+#: ai_match.html
+msgid "Jobs that match your CV"
+msgstr "CV'nize uygun ilanlar"
+
+#: _photo_card.html
+msgid "JPG, PNG or WEBP, max 3 MB."
+msgstr "JPG, PNG veya WEBP, en fazla 3 MB."
+
+#: models.py
+msgid "Kitchen"
+msgstr "Mutfak"
+
+#: scoring.py
+msgid "Language"
+msgstr "Dil"
+
+#: _profile_view.html forms.py job_detail.html models.py views.py
+msgid "Languages"
+msgstr "Bildiği diller"
+
+#: models.py
+msgid "languages"
+msgstr "diller"
+
+#: local_matcher.py
+#, python-format
+msgid "Languages: %(langs)s"
+msgstr "Diller: %(langs)s"
+
+#: forms.py
+msgid "Last name"
+msgstr "Soyadı"
+
+#: candidate_dashboard.html employer_dashboard.html
+msgid "Latest applications"
+msgstr "Son başvurular"
+
+#: ai_match.html
+msgid "Let AI find your best matches"
+msgstr "Size en uygun ilanları yapay zekâ bulsun"
+
+#: login.html register.html
+msgid "Log in"
+msgstr "Giriş yap"
+
+#: login.html
+msgid "Log in to your Otel İş Portalı account."
+msgstr "Otel İş Portalı hesabınıza giriş yapın."
+
+#: base.html
+msgid "Log out"
+msgstr "Çıkış yap"
+
+#: _score_card.html
+msgid "Low"
+msgstr "Düşük"
+
+#: job_detail.html
+msgid "Low fit for this position. Check the requirements."
+msgstr "Bu pozisyon için düşük uyum. Gereksinimleri kontrol edin."
+
+#: base.html
+msgid "Main menu"
+msgstr "Ana menü"
+
+#: employer_dashboard.html
+msgid "Mark reviewed"
+msgstr "İncelendi olarak işaretle"
+
+#: context_processors.py
+msgid "Market"
+msgstr "Pazar"
+
+#: _job_card.html ai_match.html applications_candidate.html applications_employer.html employer_dashboard.html
+msgid "Match score"
+msgstr "Uyum skoru"
+
+#: models.py
+msgid "match score"
+msgstr "uyum skoru"
+
+#: _job_card.html job_detail.html
+msgid "Meals"
+msgstr "Yemek"
+
+#: models.py
+msgid "meals provided"
+msgstr "yemek sağlanıyor"
+
+#: _score_card.html
+msgid "Medium"
+msgstr "Orta"
+
+#: models.py
+msgid "minimum experience (years)"
+msgstr "minimum deneyim (yıl)"
+
+#: candidate_dashboard.html job_detail.html views.py
+msgid "Missing:"
+msgstr "Eksik:"
+
+#: _job_card.html ai_match.html job_detail.html
+msgid "month"
+msgstr "ay"
+
+#: models.py
+msgid "monthly salary (GBP)"
+msgstr "aylık maaş (GBP)"
+
+#: candidate_dashboard.html profile_candidate.html profile_employer.html
+msgid "My account"
+msgstr "Hesabım"
+
+#: applications_candidate.html candidate_dashboard.html context_processors.py
+msgid "My applications"
+msgstr "Başvurularım"
+
+#: context_processors.py employer_dashboard.html job_form.html my_jobs.html profile_employer.html
+msgid "My listings"
+msgstr "İlanlarım"
+
+#: base.html context_processors.py profile_candidate.html
+msgid "My profile"
+msgstr "Profilim"
+
+#: _profile_view.html applications_employer.html
+msgid "Needs accommodation"
+msgstr "Konaklama gerekli"
+
+#: models.py
+msgid "needs accommodation"
+msgstr "konaklama ihtiyacım var"
+
+#: _job_card.html job_detail.html
+msgid "Negotiable"
+msgstr "Görüşülür"
+
+#: my_jobs.html
+msgid "new"
+msgstr "yeni"
+
+#: applications_employer.html employer_dashboard.html job_form.html my_jobs.html
+msgid "New job ad"
+msgstr "Yeni ilan"
+
+#: ai_match.html
+msgid "New job ads are added every week. Try again later or browse all jobs."
+msgstr "Her hafta yeni ilanlar ekleniyor. Daha sonra tekrar deneyin veya tüm ilanlara göz atın."
+
+#: applications_employer.html forms.py market.html
+msgid "Newest"
+msgstr "En yeni"
+
+#: _pagination.html
+msgid "Next"
+msgstr "Sonraki"
+
+#: _profile_view.html job_detail.html
+msgid "No"
+msgstr "Hayır"
+
+#: local_matcher.py
+msgid "No accommodation provided"
+msgstr "Konaklama sağlanmıyor"
+
+#: applications_employer.html
+msgid "No applications here yet"
+msgstr "Burada henüz başvuru yok"
+
+#: employer_dashboard.html
+msgid "No applications waiting for review."
+msgstr "İncelenmeyi bekleyen başvuru yok."
+
+#: applications_candidate.html candidate_dashboard.html employer_dashboard.html
+msgid "No applications yet"
+msgstr "Henüz başvuru yok"
+
+#: candidate_dashboard.html
+#, python-format
+msgid "No applications yet. Browse the <a href=\"%(market_url)s\">job ads</a> and apply with one click."
+msgstr "Henüz başvuru yok. <a href=\"%(market_url)s\">İş ilanlarına</a> göz atın ve tek tıkla başvurun."
+
+#: employer_dashboard.html
+#, python-format
+msgid "No applications yet. Publish a job ad from <a href=\"%(my_jobs_url)s\">My listings</a>."
+msgstr "Henüz başvuru yok. <a href=\"%(my_jobs_url)s\">İlanlarım</a> sayfasından bir ilan yayınlayın."
+
+#: job_detail.html
+msgid "No description provided."
+msgstr "Açıklama eklenmemiş."
+
+#: local_matcher.py
+msgid "No experience required"
+msgstr "Deneyim gerekmiyor"
+
+#: market.html
+msgid "No job ads match your search"
+msgstr "Aramanıza uygun ilan bulunamadı"
+
+#: candidate_dashboard.html
+msgid "No recommendations yet"
+msgstr "Henüz öneri yok"
+
+#: ai_match.html
+msgid "No strong matches right now"
+msgstr "Şu anda güçlü bir eşleşme yok"
+
+#: local_matcher.py
+msgid "No text was found in your CV. If it is a scanned image, upload a text PDF or DOCX."
+msgstr "CV'nizde metin bulunamadı. Taranmış bir görüntüyse, metin içeren bir PDF veya DOCX yükleyin."
+
+#: ai.py
+msgid "No text was found in your CV. Please upload it as PDF."
+msgstr "CV'nizde metin bulunamadı. Lütfen PDF olarak yükleyin."
+
+#: job_detail.html
+msgid "Not required"
+msgstr "Gerekli değil"
+
+#: models.py
+msgid "note to employer"
+msgstr "işverene not"
+
+#: forms.py
+msgid "Note to the employer (optional)"
+msgstr "İşverene not (isteğe bağlı)"
+
+#: employer_dashboard.html
+msgid "Nothing waiting"
+msgstr "Bekleyen yok"
+
+#: views.py
+msgid "Nothing was selected."
+msgstr "Hiçbir şey seçilmedi."
+
+#: base.html
+msgid "Notifications"
+msgstr "Bildirimler"
+
+#: job_detail.html
+msgid "Only job seeker accounts can apply for positions."
+msgstr "Yalnızca iş arayan hesapları başvuru yapabilir."
+
+#: profile_candidate.html
+msgid "Only PDF, DOC or DOCX files are allowed."
+msgstr "Yalnızca PDF, DOC veya DOCX yükleyebilirsiniz."
+
+#: employer_dashboard.html
+msgid "Open job ads"
+msgstr "Açık ilanlar"
+
+#: base.html
+msgid "Open menu"
+msgstr "Menüyü aç"
+
+#: employer_dashboard.html
+msgid "Overview of your job ads and applications"
+msgstr "İlanlarınızın ve başvurularınızın özeti"
+
+#: _pagination.html
+#, python-format
+msgid "Page %(n)s of %(total)s"
+msgstr "Sayfa %(n)s / %(total)s"
+
+#: _pagination.html
+msgid "Pages"
+msgstr "Sayfalar"
+
+#: models.py
+msgid "Part-time"
+msgstr "Yarı zamanlı"
+
+#: forms.py
+msgid "Password"
+msgstr "Şifre"
+
+#: my_jobs.html
+msgid "Pause"
+msgstr "Durdur"
+
+#: my_jobs.html
+msgid "Paused"
+msgstr "Durduruldu"
+
+#: admin.py
+msgid "Permissions"
+msgstr "İzinler"
+
+#: admin.py
+msgid "Personal info"
+msgstr "Kişisel bilgiler"
+
+#: _profile_view.html models.py profile_employer.html
+msgid "Phone"
+msgstr "Telefon"
+
+#: models.py
+msgid "phone"
+msgstr "telefon"
+
+#: forms.py
+msgid "Phone is required."
+msgstr "Telefon zorunludur."
+
+#: ai_match.html
+msgid "Platform match score"
+msgstr "Platform uyum skoru"
+
+#: views.py
+msgid "Please check the highlighted fields."
+msgstr "Lütfen işaretli alanları kontrol edin."
+
+#: forms.py
+msgid "Please enter your hotel or company name."
+msgstr "Lütfen otel veya şirket adınızı girin."
+
+#: forms.py
+msgid "Please upload your CV."
+msgstr "Lütfen CV'nizi yükleyin."
+
+#: views.py
+msgid "Please wait a few seconds before running a new analysis."
+msgstr "Yeni bir analizden önce lütfen birkaç saniye bekleyin."
+
+#: models.py
+msgid "position"
+msgstr "pozisyon"
+
+#: market.html
+msgid "Position, hotel or keyword"
+msgstr "Pozisyon, otel veya anahtar kelime"
+
+#: models.py
+msgid "preferred department"
+msgstr "çalışmak istediği departman"
+
+#: _pagination.html
+msgid "Previous"
+msgstr "Önceki"
+
+#: _photo_card.html candidate_dashboard.html
+msgid "Profile completeness"
+msgstr "Profil doluluğu"
+
+#: forms.py
+msgid "Profile photo"
+msgstr "Profil fotoğrafı"
+
+#: models.py
+msgid "profile photo"
+msgstr "profil fotoğrafı"
+
+#: applications_candidate.html
+msgid "Progress"
+msgstr "İlerleme"
+
+#: my_jobs.html
+msgid "Publish"
+msgstr "Yayınla"
+
+#: job_form.html
+msgid "Publish immediately"
+msgstr "Hemen yayınla"
+
+#: job_form.html
+msgid "Publish job ad"
+msgstr "İlanı yayınla"
+
+#: register.html
+msgid "Publish job ads, find staff"
+msgstr "İlan yayınla, personel bul"
+
+#: my_jobs.html
+msgid "Publish your first job ad and start receiving matched candidates."
+msgstr "İlk ilanınızı yayınlayın ve uyumlu adaylardan başvuru almaya başlayın."
+
+#: my_jobs.html
+msgid "Published"
+msgstr "Yayında"
+
+#: models.py
+msgid "published"
+msgstr "yayında"
+
+#: ai_match.html
+msgid "Reads your CV (PDF or DOCX)"
+msgstr "CV'nizi okur (PDF veya DOCX)"
+
+#: candidate_dashboard.html
+msgid "Recommended for you"
+msgstr "Size önerilenler"
+
+#: applications_candidate.html models.py
+msgid "Rejected"
+msgstr "Reddedildi"
+
+#: profile_candidate.html
+msgid "Remove"
+msgstr "Kaldır"
+
+#: forms.py
+msgid "Repeat password"
+msgstr "Şifre (tekrar)"
+
+#: local_matcher.py
+#, python-format
+msgid "Required language not found in your CV: %(langs)s"
+msgstr "Gerekli dil CV'nizde bulunamadı: %(langs)s"
+
+#: forms.py
+msgid "Required languages"
+msgstr "Gerekli diller"
+
+#: models.py
+msgid "required languages"
+msgstr "gerekli diller"
+
+#: local_matcher.py
+#, python-format
+msgid "Requires %(req)s years of experience, your CV shows %(years)s"
+msgstr "%(req)s yıl deneyim gerekiyor, CV'nizde %(years)s yıl görünüyor"
+
+#: applications_employer.html
+msgid "Review candidates and update their application status"
+msgstr "Adayları inceleyin ve başvuru durumlarını güncelleyin"
+
+#: employer_dashboard.html
+msgid "Review now"
+msgstr "Şimdi incele"
+
+#: applications_candidate.html models.py
+msgid "Reviewed"
+msgstr "İncelendi"
+
+#: ai_match.html
+msgid "Run a new analysis"
+msgstr "Yeni analiz başlat"
+
+#: models.py settings.py
+msgid "Russian"
+msgstr "Rusça"
+
+#: job_detail.html
+msgid "Salary"
+msgstr "Maaş"
+
+#: job_form.html profile_candidate.html profile_employer.html
+msgid "Save changes"
+msgstr "Değişiklikleri Kaydet"
+
+#: _score_card.html
+msgid "Scores are recalculated when the profile or the job ad changes."
+msgstr "Skorlar, profil veya ilan değiştiğinde yeniden hesaplanır."
+
+#: base.html market.html
+msgid "Search"
+msgstr "Ara"
+
+#: base.html
+msgid "Search job ads, hotels…"
+msgstr "İlan, otel ara…"
+
+#: models.py
+msgid "Seasonal"
+msgstr "Sezonluk"
+
+#: forms.py
+msgid "Select at least one language."
+msgstr "En az bir dil seçin."
+
+#: forms.py
+msgid "Select…"
+msgstr "Seçiniz…"
+
+#: applications_candidate.html models.py
+msgid "Sent"
+msgstr "Gönderildi"
+
+#: _status_tiles.html
+msgid "Sent • Reviewed • Interview • Accepted / Rejected"
+msgstr "Gönderildi • İncelendi • Mülakat • Kabul / Red"
+
+#: _profile_view.html views.py
+msgid "Short introduction"
+msgstr "Kısa tanıtım"
+
+#: models.py
+msgid "short introduction"
+msgstr "kısa tanıtım"
+
+#: login.html register.html
+msgid "Show password"
+msgstr "Şifreyi göster"
+
+#: login.html register.html
+msgid "Sign up"
+msgstr "Kayıt ol"
+
+#: local_matcher.py
+#, python-format
+msgid "Skills: %(skills)s."
+msgstr "Beceriler: %(skills)s."
+
+#: base.html
+msgid "Skip to content"
+msgstr "İçeriğe geç"
+
+#: ai_match.html
+msgid "Smart matching"
+msgstr "Akıllı eşleştirme"
+
+#: base_auth.html
+msgid "Smart matching with a 0–100 compatibility score"
+msgstr "0–100 uyum skoru ile akıllı eşleştirme"
+
+#: applications_employer.html market.html
+msgid "Sort"
+msgstr "Sırala"
+
+#: models.py
+msgid "Spa & Wellness"
+msgstr "Spa & Wellness"
+
+#: applications_employer.html
+msgid "Status"
+msgstr "Durum"
+
+#: models.py
+msgid "status"
+msgstr "durum"
+
+#: views.py
+#, python-format
+msgid "Status updated: %(name)s → %(status)s"
+msgstr "Durum güncellendi: %(name)s → %(status)s"
+
+#: models.py
+msgid "Technical Service"
+msgstr "Teknik Servis"
+
+#: ai.py
+msgid "The AI analysis took too long. Please try again."
+msgstr "Yapay zekâ analizi çok uzun sürdü. Lütfen tekrar deneyin."
+
+#: ai.py
+msgid "The AI analysis was incomplete. Please try again."
+msgstr "Yapay zekâ analizi tamamlanamadı. Lütfen tekrar deneyin."
+
+#: ai.py
+msgid "The AI could not analyse this document."
+msgstr "Yapay zekâ bu belgeyi analiz edemedi."
+
+#: ai.py
+msgid "The AI could not process this CV. Try uploading it as a PDF."
+msgstr "Yapay zekâ bu CV'yi işleyemedi. PDF olarak yüklemeyi deneyin."
+
+#: ai.py
+msgid "The AI service is busy right now. Please try again in a minute."
+msgstr "Yapay zekâ servisi şu anda yoğun. Lütfen bir dakika sonra tekrar deneyin."
+
+#: ai.py
+msgid "The AI service is misconfigured. Please contact the site administrator."
+msgstr "Yapay zekâ servisi yanlış yapılandırılmış. Lütfen site yöneticisiyle iletişime geçin."
+
+#: ai.py
+msgid "The AI service is temporarily unavailable. Please try again later."
+msgstr "Yapay zekâ servisi geçici olarak kullanılamıyor. Lütfen daha sonra tekrar deneyin."
+
+#: ai.py
+msgid "The AI service key is invalid. Please contact the site administrator."
+msgstr "Yapay zekâ servis anahtarı geçersiz. Lütfen site yöneticisiyle iletişime geçin."
+
+#: ai.py local_matcher.py
+msgid "The CV file could not be read. Please upload it again as PDF or DOCX."
+msgstr "CV dosyası okunamadı. Lütfen PDF veya DOCX olarak tekrar yükleyin."
+
+#: ai.py forms.py profile_candidate.html
+msgid "The file can be at most 5 MB."
+msgstr "Dosya en fazla 5 MB olabilir."
+
+#: job_detail.html
+msgid "The hotel will see your profile, CV and match score."
+msgstr "Otel profilinizi, CV'nizi ve uyum skorunuzu görecek."
+
+#: _photo_card.html forms.py
+msgid "The photo can be at most 3 MB."
+msgstr "Fotoğraf en fazla 3 MB olabilir."
+
+#: forms.py
+msgid "The photo must be a JPG, PNG or WEBP image."
+msgstr "Fotoğraf JPG, PNG veya WEBP formatında olmalıdır."
+
+#: ai.py
+msgid "There are no open job ads to match yet."
+msgstr "Eşleştirilecek açık ilan henüz yok."
+
+#: forms.py
+msgid "This account is inactive."
+msgstr "Bu hesap aktif değil."
+
+#: views.py
+msgid "This application has already been processed and cannot be withdrawn."
+msgstr "Bu başvuru işleme alındı, geri çekilemez."
+
+#: views.py
+msgid "This file does not look like a CV. Please upload your CV on your profile."
+msgstr "Bu dosya bir CV'ye benzemiyor. Lütfen profilinize CV'nizi yükleyin."
+
+#: local_matcher.py
+#, python-format
+msgid "This is a %(type)s position"
+msgstr "Pozisyon türü: %(type)s"
+
+#: job_detail.html
+msgid "This is your job ad"
+msgstr "Bu sizin ilanınız"
+
+#: local_matcher.py
+#, python-format
+msgid "This job is in a different department: %(dept)s"
+msgstr "Bu ilan farklı bir departmanda: %(dept)s"
+
+#: views.py
+msgid "This page is only for employers."
+msgstr "Bu sayfa yalnızca işverenler içindir."
+
+#: views.py
+msgid "This page is only for job seekers."
+msgstr "Bu sayfa yalnızca iş arayanlar içindir."
+
+#: employer_dashboard.html
+msgid "Total applications"
+msgstr "Toplam başvuru"
+
+#: job_detail.html
+msgid "Track my applications"
+msgstr "Başvurularımı takip et"
+
+#: candidate_dashboard.html
+msgid "Track status"
+msgstr "Durumu takip et"
+
+#: applications_candidate.html
+msgid "Track the status of every application in one place"
+msgstr "Tüm başvurularınızın durumunu tek yerden takip edin"
+
+#: base.html
+msgid "Translate"
+msgstr "Çeviri"
+
+#: candidate_dashboard.html
+msgid "Try AI matching"
+msgstr "AI eşleştirmeyi dene"
+
+#: market.html
+msgid "Try removing some filters."
+msgstr "Bazı filtreleri kaldırmayı deneyin."
+
+#: models.py settings.py
+msgid "Turkish"
+msgstr "Türkçe"
+
+#: ai_match.html
+msgid "Update my profile with:"
+msgstr "Profilimi şunlarla güncelle:"
+
+#: applications_candidate.html
+#, python-format
+msgid "Updated %(ago)s"
+msgstr "Güncellendi: %(ago)s"
+
+#: ai_match.html
+msgid "Upload CV"
+msgstr "CV yükle"
+
+#: _photo_card.html
+msgid "Upload photo"
+msgstr "Fotoğraf yükle"
+
+#: ai.py ai_match.html local_matcher.py
+msgid "Upload your CV on your profile first."
+msgstr "Önce profilinize CV'nizi yükleyin."
+
+#: profile_candidate.html
+msgid "Upload your CV or"
+msgstr "CV dosyanızı yükleyin veya"
+
+#: profile_employer.html
+msgid "Verification pending"
+msgstr "Doğrulama bekleniyor"
+
+#: _job_card.html job_detail.html
+msgid "Verified"
+msgstr "Doğrulanmış"
+
+#: models.py
+msgid "verified"
+msgstr "doğrulanmış"
+
+#: profile_employer.html
+msgid "Verified hotel"
+msgstr "Doğrulanmış otel"
+
+#: base_auth.html
+msgid "Verified hotels and resorts"
+msgstr "Doğrulanmış otel ve resortlar"
+
+#: candidate_dashboard.html
+msgid "View"
+msgstr "Gör"
+
+#: candidate_dashboard.html employer_dashboard.html
+msgid "View all"
+msgstr "Tümünü gör"
+
+#: ai_match.html
+msgid "View and apply"
+msgstr "Gör ve başvur"
+
+#: job_detail.html
+msgid "View applications"
+msgstr "Başvuruları gör"
+
+#: _job_card.html
+msgid "View details"
+msgstr "Detayları gör"
+
+#: employer_dashboard.html
+msgid "Waiting for review"
+msgstr "İnceleme bekleyen"
+
+#: ai_match.html
+msgid "We read your CV and pick the open positions that fit you best, with reasons."
+msgstr "CV'nizi okur, size en uygun açık pozisyonları gerekçeleriyle seçeriz."
+
+#: profile_employer.html
+msgid "Website"
+msgstr "Web sitesi"
+
+#: models.py
+msgid "website"
+msgstr "web sitesi"
+
+#: login.html
+msgid "Welcome back"
+msgstr "Tekrar hoş geldiniz"
+
+#: views.py
+msgid "Welcome! Complete your profile to see your match scores."
+msgstr "Hoş geldiniz! Uyum skorlarınızı görmek için profilinizi tamamlayın."
+
+#: views.py
+msgid "Welcome! Your employer account is ready. Publish your first job ad."
+msgstr "Hoş geldiniz! İşveren hesabınız hazır. İlk ilanınızı yayınlayın."
+
+#: ai_match.html
+msgid "What we found in your CV"
+msgstr "CV'nizde bulduklarımız"
+
+#: applications_employer.html
+msgid "When candidates apply to your job ads, they will appear in this list."
+msgstr "Adaylar ilanlarınıza başvurduğunda bu listede görünecek."
+
+#: forms.py
+msgid "Why are you a good fit for this position?"
+msgstr "Bu pozisyon için neden uygunsunuz?"
+
+#: market.html
+msgid "With accommodation"
+msgstr "Konaklamalı"
+
+#: applications_candidate.html
+msgid "Withdraw"
+msgstr "Geri çek"
+
+#: applications_candidate.html
+msgid "Withdraw this application?"
+msgstr "Bu başvuru geri çekilsin mi?"
+
+#: models.py
+msgid "work availability"
+msgstr "çalışma uygunluğu"
+
+#: forms.py
+msgid "Write a short introduction about yourself…"
+msgstr "Kendiniz hakkında kısa bir tanıtım yazın…"
+
+#: _profile_view.html job_detail.html
+msgid "Yes"
+msgstr "Evet"
+
+#: job_detail.html
+msgid "You applied"
+msgstr "Başvurdunuz"
+
+#: views.py
+msgid "You can apply to jobs"
+msgstr "İlanlara başvurabilirsiniz"
+
+#: views.py
+msgid "You have already applied for this position."
+msgstr "Bu pozisyona zaten başvurdunuz."
+
+#: my_jobs.html
+msgid "You have no job ads yet"
+msgstr "Henüz ilanınız yok"
+
+#: views.py
+msgid "You have reached today's limit of AI analyses. Try again tomorrow."
+msgstr "Bugünkü yapay zekâ analizi sınırına ulaştınız. Yarın tekrar deneyin."
+
+#: job_form.html profile_candidate.html profile_employer.html
+msgid "You have unsaved changes"
+msgstr "Kaydedilmemiş değişiklikler var"
+
+#: local_matcher.py
+#, python-format
+msgid "You speak the required languages: %(langs)s"
+msgstr "Gerekli dilleri biliyorsunuz: %(langs)s"
+
+#: views.py
+#, python-format
+msgid "Your application has been sent to %(hotel)s."
+msgstr "Başvurunuz gönderildi: %(hotel)s."
+
+#: views.py
+msgid "Your application was withdrawn."
+msgstr "Başvurunuz geri çekildi."
+
+#: candidate_dashboard.html
+msgid "Your applications and the jobs that fit you best"
+msgstr "Başvurularınız ve size en uygun ilanlar"
+
+#: base_auth.html
+msgid "Your career in Northern Cyprus hospitality starts here."
+msgstr "Kuzey Kıbrıs turizm sektöründe kariyeriniz burada başlıyor."
+
+#: views.py
+msgid "Your company profile is confirmed. Publish and manage your job ads here."
+msgstr "Şirket profiliniz onaylandı. İlanlarınızı buradan yayınlayıp yönetebilirsiniz."
+
+#: ai_match.html
+msgid "Your CV changed since the last analysis."
+msgstr "CV'niz son analizden sonra değişti."
+
+#: ai.py
+msgid "Your CV is too long to analyse. Please upload a shorter version."
+msgstr "CV'niz analiz için çok uzun. Lütfen daha kısa bir sürüm yükleyin."
+
+#: local_matcher.py
+#, python-format
+msgid "Your CV mentions \"%(title)s\""
+msgstr "CV'nizde \"%(title)s\" geçiyor"
+
+#: views.py
+msgid "Your CV was analysed, but no open job ad fits it well right now."
+msgstr "CV'niz analiz edildi, ancak şu anda ona iyi uyan açık ilan yok."
+
+#: local_matcher.py
+#, python-format
+msgid "Your experience is in %(dept)s"
+msgstr "Deneyiminiz bu alanda: %(dept)s"
+
+#: job_detail.html
+msgid "Your match score"
+msgstr "Uyum skorunuz"
+
+#: profile_candidate.html
+msgid "Your match score is calculated from this information. Keep it up to date."
+msgstr "Uyum skorunuz bu bilgilere göre hesaplanır. Güncel tutun."
+
+#: views.py
+msgid "Your photo has been deleted."
+msgstr "Fotoğrafınız silindi."
+
+#: views.py
+msgid "Your photo has been updated."
+msgstr "Fotoğrafınız güncellendi."
+
+#: views.py
+msgid "Your profile has been saved."
+msgstr "Profiliniz kaydedildi."
+
+#: views.py
+msgid "Your profile is confirmed. Here are the job ads that fit you best."
+msgstr "Profiliniz onaylandı. İşte size en uygun ilanlar."
+
+#: views.py
+msgid "Your profile was updated with the information from your CV."
+msgstr "Profiliniz CV'nizdeki bilgilerle güncellendi."

@@ -1,0 +1,62 @@
+{% extends "auth/base_auth.html" %}
+{% load i18n portal_tags %}
+{% block title %}{% translate "Sign up" %}{% endblock %}
+{% block content %}
+<h1>{% translate "Create your account" %}</h1>
+<p class="auth__lead">{% translate "Free for job seekers. Takes about a minute." %}</p>
+
+<form method="post" class="auth__form" novalidate data-register>
+  {% csrf_token %}
+  {% if form.non_field_errors %}<div class="form-errors">{% for e in form.non_field_errors %}<p>{{ e }}</p>{% endfor %}</div>{% endif %}
+
+  <fieldset class="role-pick">
+    <legend class="sr-only">{{ form.role.label }}</legend>
+    {% for r in form.role %}
+      <label class="role-option">
+        {{ r.tag }}
+        <span class="role-option__box">
+          {% if r.data.value == "employer" %}{% icon "building" %}{% else %}{% icon "user" %}{% endif %}
+          <strong>{{ r.choice_label }}</strong>
+          <small>{% if r.data.value == "employer" %}{% translate "Publish job ads, find staff" %}{% else %}{% translate "Find a job, apply in one click" %}{% endif %}</small>
+        </span>
+      </label>
+    {% endfor %}
+  </fieldset>
+
+  <div class="auth-row">
+    {% for field in form %}{% if field.name == "first_name" or field.name == "last_name" %}
+      <div class="auth-field{% if field.errors %} has-error{% endif %}">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}
+        {% for e in field.errors %}<p class="error">{{ e }}</p>{% endfor %}
+      </div>
+    {% endif %}{% endfor %}
+  </div>
+
+  <div class="employer-only" data-employer-only>
+    <div class="auth-row">
+      <div class="auth-field{% if form.company_name.errors %} has-error{% endif %}">
+        <label for="{{ form.company_name.id_for_label }}">{{ form.company_name.label }}</label>{{ form.company_name }}
+        {% for e in form.company_name.errors %}<p class="error">{{ e }}</p>{% endfor %}
+      </div>
+      <div class="auth-field">
+        <label for="{{ form.city.id_for_label }}">{{ form.city.label }}</label><div class="select">{{ form.city }}</div>
+      </div>
+    </div>
+  </div>
+
+  {% for field in form %}{% if field.name == "email" or field.name == "password1" or field.name == "password2" %}
+    <div class="auth-field{% if field.errors %} has-error{% endif %}">
+      <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+      {% if field.name == "email" %}{{ field }}{% else %}<div class="input-icon input-icon--right">{{ field }}<button type="button" class="pw-toggle" data-pw-toggle aria-label="{% translate 'Show password' %}">{% icon "eye" %}</button></div>{% endif %}
+      {% if field.help_text and not field.errors %}<p class="hint hint--left">{{ field.help_text }}</p>{% endif %}
+      {% for e in field.errors %}<p class="error">{{ e }}</p>{% endfor %}
+    </div>
+  {% endif %}{% endfor %}
+
+  <label class="check check--terms{% if form.accept_terms.errors %} has-error{% endif %}">{{ form.accept_terms }}<span class="check__box"></span><span>{{ form.accept_terms.label }}</span></label>
+  {% for e in form.accept_terms.errors %}<p class="error">{{ e }}</p>{% endfor %}
+
+  <button type="submit" class="btn btn--primary btn--block btn--lg">{% translate "Create account" %}</button>
+</form>
+<p class="auth__switch">{% translate "Already have an account?" %} <a href="{% url 'login' %}">{% translate "Log in" %}</a></p>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags %}
+{% block title %}{% if is_new %}{% translate "New job ad" %}{% else %}{% translate "Edit job ad" %}{% endif %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div class="page-head__title">
+    <span class="page-icon">{% icon "megaphone" %}</span>
+    <div>
+      <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'my_jobs' %}">{% translate "My listings" %}</a>{% icon "chevron-right" %}<span>{% if is_new %}{% translate "New job ad" %}{% else %}{{ job.title }}{% endif %}</span></nav>
+      <h1>{% if is_new %}{% translate "New job ad" %}{% else %}{% translate "Edit job ad" %}{% endif %}</h1>
+      <p>{% translate "Clear requirements give candidates more accurate match scores." %}</p>
+    </div>
+  </div>
+</div>
+
+<form class="card form-card" method="post" novalidate data-dirty-check>
+  {% csrf_token %}
+  <div class="form-cols">
+    <div class="form-col">
+      {% include "app/_field.html" with field=form.title icon="briefcase" %}
+      {% include "app/_field.html" with field=form.department icon="layers" select=True %}
+      {% include "app/_field.html" with field=form.city icon="pin" select=True %}
+      {% include "app/_field.html" with field=form.employment_type icon="calendar" select=True %}
+      {% include "app/_field.html" with field=form.salary icon="chart" %}
+      {% include "app/_field.html" with field=form.min_experience icon="star" %}
+    </div>
+    <div class="form-col">
+      <fieldset class="field">
+        {% icon "globe" "field__icon" %}
+        <div class="field__body">
+          <legend>{{ form.required_languages.label }}</legend>
+          <div class="checks checks--3">
+            {% for cb in form.required_languages %}<label class="check">{{ cb.tag }}<span class="check__box"></span>{{ cb.choice_label }}</label>{% endfor %}
+          </div>
+        </div>
+      </fieldset>
+      <div class="field">
+        {% icon "home" "field__icon" %}
+        <div class="field__body">
+          <span class="label">{% translate "Benefits" %}</span>
+          <div class="checks">
+            <label class="check">{{ form.housing }}<span class="check__box"></span>{{ form.housing.label|capfirst }}</label>
+            <label class="check">{{ form.meals }}<span class="check__box"></span>{{ form.meals.label|capfirst }}</label>
+          </div>
+        </div>
+      </div>
+      {% include "app/_field.html" with field=form.description icon="edit" %}
+      <div class="field">
+        {% icon "eye" "field__icon" %}
+        <div class="field__body"><label class="check">{{ form.is_active }}<span class="check__box"></span>{% translate "Publish immediately" %}</label></div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="form-actions">
+    <button type="submit" class="btn btn--primary">{% icon "save" %}{% if is_new %}{% translate "Publish job ad" %}{% else %}{% translate "Save changes" %}{% endif %}</button>
+    <a href="{% url 'my_jobs' %}" class="btn btn--light">{% icon "x" %}{% translate "Cancel" %}</a>
+    <span class="dirty-note" data-dirty-note hidden>{% translate "You have unsaved changes" %}</span>
+  </div>
+</form>
+{% endblock %}

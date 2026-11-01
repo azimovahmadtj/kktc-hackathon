@@ -1,0 +1,111 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags %}
+{% block title %}{% translate "My profile" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'dashboard' %}">{% translate "My account" %}</a>{% icon "chevron-right" %}<span>{% translate "My profile" %}</span></nav>
+    <h1>{% translate "My profile" %}</h1>
+    <p>{% if mode == "confirm" %}{% translate "Fill in your details and press Confirm to start seeing matching jobs." %}{% else %}{% translate "Your match score is calculated from this information. Keep it up to date." %}{% endif %}</p>
+  </div>
+</div>
+
+{% include "app/_photo_card.html" with completeness=profile.completeness completeness_hint=completeness_hint %}
+
+{% if mode == "view" %}
+  {% include "app/_profile_view.html" %}
+{% else %}
+<form class="card form-card" method="post" enctype="multipart/form-data" novalidate data-dirty-check>
+  {% csrf_token %}
+  {% if form.non_field_errors %}<div class="form-errors">{{ form.non_field_errors }}</div>{% endif %}
+  <div class="form-cols">
+    <div class="form-col">
+      {% include "app/_field.html" with field=form.phone icon="phone" %}
+      <div class="field{% if form.experience_years.errors %} has-error{% endif %}">
+        {% icon "briefcase" "field__icon" %}
+        <div class="field__body">
+          <label for="{{ form.experience_years.id_for_label }}">{{ form.experience_years.label }} <b class="req">*</b></label>
+          <div class="stepper">
+            {{ form.experience_years }}
+            <div class="stepper__btns">
+              <button type="button" data-step="1" aria-label="+1">{% icon "chevron-down" "up" %}</button>
+              <button type="button" data-step="-1" aria-label="-1">{% icon "chevron-down" %}</button>
+            </div>
+          </div>
+          {% for e in form.experience_years.errors %}<p class="error">{{ e }}</p>{% endfor %}
+        </div>
+      </div>
+      {% include "app/_field.html" with field=form.department icon="layers" select=True %}
+      {% include "app/_field.html" with field=form.availability icon="calendar" select=True %}
+      <div class="field">
+        {% icon "bed" "field__icon" %}
+        <div class="field__body">
+          <label class="check check--block"><span class="check__label">{{ form.needs_accommodation.label|capfirst }}</span>{{ form.needs_accommodation }}<span class="check__box"></span></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-col">
+      <fieldset class="field{% if form.languages.errors %} has-error{% endif %}">
+        {% icon "globe" "field__icon" %}
+        <div class="field__body">
+          <legend>{{ form.languages.label }} <b class="req">*</b></legend>
+          <div class="checks checks--3">
+            {% for cb in form.languages %}
+              <label class="check">{{ cb.tag }}<span class="check__box"></span>{{ cb.choice_label }}</label>
+            {% endfor %}
+          </div>
+          {% for e in form.languages.errors %}<p class="error">{{ e }}</p>{% endfor %}
+        </div>
+      </fieldset>
+
+      <div class="field">
+        {% icon "edit" "field__icon" %}
+        <div class="field__body">
+          <label for="{{ form.bio.id_for_label }}">{{ form.bio.label|capfirst }}</label>
+          {{ form.bio }}
+          <p class="hint"><span data-count-for="{{ form.bio.id_for_label }}">{{ form.bio.value|default:''|length }}</span>/500</p>
+        </div>
+      </div>
+
+      <div class="field{% if form.cv.errors %} has-error{% endif %}" data-cv>
+        {% icon "paperclip" "field__icon" %}
+        <div class="field__body">
+          <span class="label" id="cv-label">CV <b class="req">*</b></span>
+          {{ form.remove_cv }}
+          <div class="cv-current"{% if not profile.cv %} hidden{% endif %} data-cv-current>
+            {% icon "file" %}
+            <span>{% translate "Current:" %} <a href="{% url 'my_cv' %}" target="_blank" rel="noopener" data-cv-name>{{ profile.cv_filename }}</a></span>
+            <button type="button" class="cv-remove" data-cv-remove>{% icon "x" %}{% translate "Remove" %}</button>
+          </div>
+          <label class="drop" data-drop>
+            <input type="file" name="cv" accept=".pdf,.doc,.docx" aria-labelledby="cv-label" data-max="5242880" />
+            <span class="drop__title">{% icon "upload" %}<span>{% translate "Upload your CV or" %} <u>{% translate "choose a file" %}</u></span></span>
+            <span class="drop__sub">{% translate "Drag and drop, or select from your computer. (PDF, DOC, DOCX · max 5 MB)" %}</span>
+          </label>
+          {% for e in form.cv.errors %}<p class="error">{{ e }}</p>{% endfor %}
+          <p class="error" data-cv-error hidden data-type-msg="{% translate "Only PDF, DOC or DOCX files are allowed." %}" data-size-msg="{% translate "The file can be at most 5 MB." %}"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <div class="form-cols">
+    {% include "app/_field.html" with field=form.first_name icon="user" %}
+    {% include "app/_field.html" with field=form.last_name icon="id" %}
+  </div>
+  <hr />
+
+  <div class="form-actions">
+    {% if mode == "confirm" %}
+      <button type="submit" class="btn btn--primary">{% icon "check" %}{% translate "Confirm" %}</button>
+    {% else %}
+      <button type="submit" class="btn btn--primary">{% icon "save" %}{% translate "Save changes" %}</button>
+      <a href="{% url 'profile' %}" class="btn btn--light">{% icon "x" %}{% translate "Cancel" %}</a>
+    {% endif %}
+    <span class="dirty-note" data-dirty-note hidden>{% translate "You have unsaved changes" %}</span>
+      </div>
+</form>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+{% load portal_tags %}
+<div class="field{% if field.errors %} has-error{% endif %}">
+  {% icon icon "field__icon" %}
+  <div class="field__body">
+    <label for="{{ field.id_for_label }}">{{ field.label|capfirst }}{% if field.field.required %} <b class="req">*</b>{% endif %}</label>
+    {% if select %}<div class="select">{{ field }}</div>{% else %}{{ field }}{% endif %}
+    {% if field.help_text %}<p class="hint hint--left">{{ field.help_text }}</p>{% endif %}
+    {% for e in field.errors %}<p class="error">{{ e }}</p>{% endfor %}
+  </div>
+</div>

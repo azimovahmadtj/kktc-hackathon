@@ -1,0 +1,25 @@
+{% extends "auth/base_auth.html" %}
+{% load i18n portal_tags %}
+{% block title %}{% translate "Log in" %}{% endblock %}
+{% block content %}
+<h1>{% translate "Welcome back" %}</h1>
+<p class="auth__lead">{% translate "Log in to your Otel İş Portalı account." %}</p>
+
+<form method="post" class="auth__form" novalidate>
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ next }}" />
+  {% if form.non_field_errors %}<div class="form-errors">{% for e in form.non_field_errors %}<p>{{ e }}</p>{% endfor %}</div>{% endif %}
+  <div class="auth-field{% if form.username.errors %} has-error{% endif %}">
+    <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+    <div class="input-icon">{% icon "user" %}{{ form.username }}</div>
+    {% for e in form.username.errors %}<p class="error">{{ e }}</p>{% endfor %}
+  </div>
+  <div class="auth-field{% if form.password.errors %} has-error{% endif %}">
+    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+    <div class="input-icon">{% icon "shield" %}{{ form.password }}<button type="button" class="pw-toggle" data-pw-toggle aria-label="{% translate 'Show password' %}">{% icon "eye" %}</button></div>
+    {% for e in form.password.errors %}<p class="error">{{ e }}</p>{% endfor %}
+  </div>
+  <button type="submit" class="btn btn--primary btn--block btn--lg">{% translate "Log in" %}</button>
+</form>
+<p class="auth__switch">{% translate "Don't have an account?" %} <a href="{% url 'register' %}">{% translate "Sign up" %}</a></p>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags humanize %}
+{% block title %}{% translate "Applications" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'dashboard' %}">{% translate "Dashboard" %}</a>{% icon "chevron-right" %}<span>{% translate "Applications" %}</span></nav>
+    <h1>{% translate "Applications" %}</h1>
+    <p>{% translate "Review candidates and update their application status" %}</p>
+  </div>
+  <form class="filters-inline" method="get">
+    {% if status %}<input type="hidden" name="status" value="{{ status }}" />{% endif %}
+    <div class="select select--sm">
+      <select name="job" aria-label="{% translate 'Job ad' %}" data-autosubmit>
+        <option value="">{% translate "All job ads" %}</option>
+        {% for j in jobs %}<option value="{{ j.pk }}"{% if job_id == j.pk|stringformat:"s" %} selected{% endif %}>{{ j.title }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="select select--sm">
+      <select name="sort" aria-label="{% translate 'Sort' %}" data-autosubmit>
+        <option value="">{% translate "Newest" %}</option>
+        <option value="score"{% if request.GET.sort == "score" %} selected{% endif %}>{% translate "Best match" %}</option>
+      </select>
+    </div>
+  </form>
+</div>
+
+<div class="chips">
+  <a href="?{% if job_id %}job={{ job_id }}{% endif %}" class="chip{% if not status %} is-active{% endif %}">{% translate "All" %}</a>
+  {% for t in tiles %}<a href="?status={{ t.key }}{% if job_id %}&job={{ job_id }}{% endif %}" class="chip chip--{{ t.key }}{% if status == t.key %} is-active{% endif %}">{{ t.label }} <b>{{ t.count }}</b></a>{% endfor %}
+</div>
+
+<section class="card card--flush">
+  {% if page_obj.object_list %}
+    <ul class="app-list">
+      {% for app in page_obj %}
+        {% with p=app.candidate.candidate_profile %}
+        <li class="app-item">
+          <div class="app-item__who">
+            {% avatar app.candidate "avatar--soft" %}
+            <div>
+              <strong>{{ app.candidate.display_name }}</strong>
+              <small>{{ app.candidate.email }}{% if p.phone %} · {{ p.phone }}{% endif %}</small>
+            </div>
+          </div>
+          <div class="app-item__job">
+            <a href="{% url 'job_detail' app.job.pk %}">{{ app.job.title }}</a>
+            <small>{{ app.created_at|naturaltime }}</small>
+          </div>
+          <div class="app-item__tags">
+            {% if p.department %}<span class="tag">{{ p.get_department_display }}</span>{% endif %}
+            <span class="tag">{% blocktranslate count years=p.experience_years %}{{ years }} yr{% plural %}{{ years }} yrs{% endblocktranslate %}</span>
+            {% for l in p.language_labels %}<span class="tag tag--blue">{{ l }}</span>{% endfor %}
+            {% if p.needs_accommodation %}<span class="tag tag--amber">{% translate "Needs accommodation" %}</span>{% endif %}
+          </div>
+          <span class="score score--{{ app.score|score_level }}" title="{% translate 'Match score' %}">{{ app.score }}</span>
+          <div class="app-item__actions">
+            {% if p.cv %}<a class="btn btn--sm btn--light" href="{% url 'application_cv' app.pk %}" target="_blank" rel="noopener">{% icon "file" %}CV</a>{% endif %}
+            <form action="{% url 'application_status' app.pk %}" method="post" class="select select--sm select--status select--{{ app.status }}">
+              {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}" />
+              <select name="status" aria-label="{% translate 'Status' %}" data-autosubmit>
+                {% for value, label in statuses %}<option value="{{ value }}"{% if app.status == value %} selected{% endif %}>{{ label }}</option>{% endfor %}
+              </select>
+            </form>
+          </div>
+          {% if app.note %}<p class="app-item__note">“{{ app.note }}”</p>{% endif %}
+        </li>
+        {% endwith %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    {% translate "No applications here yet" as t1 %}{% translate "When candidates apply to your job ads, they will appear in this list." as t2 %}{% translate "New job ad" as t3 %}{% url 'job_create' as curl %}
+    {% include "app/_empty.html" with title=t1 text=t2 action_url=curl action_label=t3 %}
+  {% endif %}
+</section>
+{% include "app/_pagination.html" %}
+{% endblock %}

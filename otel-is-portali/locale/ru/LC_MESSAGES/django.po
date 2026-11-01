@@ -1,0 +1,1594 @@
+# Russian translations for Otel İş Portalı.
+# Edit msgstr values, then run: python tools/compile_messages.py
+msgid ""
+msgstr ""
+"Project-Id-Version: otel-is-portali 1.0\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: candidate_dashboard.html
+#, python-format
+msgid "%(accepted)s accepted"
+msgstr "Принято: %(accepted)s"
+
+#: employer_dashboard.html
+#, python-format
+msgid "%(apps_this_week)s in the last 7 days"
+msgstr "За последние 7 дней: %(apps_this_week)s"
+
+#: job_detail.html
+#, python-format
+msgid "%(counter)s application"
+msgid_plural "%(counter)s applications"
+msgstr[0] "%(counter)s заявка"
+msgstr[1] "%(counter)s заявки"
+msgstr[2] "%(counter)s заявок"
+
+#: market.html
+#, python-format
+msgid "%(counter)s open position in Northern Cyprus"
+msgid_plural "%(counter)s open positions in Northern Cyprus"
+msgstr[0] "%(counter)s открытая вакансия на Северном Кипре"
+msgstr[1] "%(counter)s открытые вакансии на Северном Кипре"
+msgstr[2] "%(counter)s открытых вакансий на Северном Кипре"
+
+#: employer_dashboard.html
+#, python-format
+msgid "%(total_jobs)s ads in total"
+msgstr "всего объявлений: %(total_jobs)s"
+
+#: employer_dashboard.html
+#, python-format
+msgid "%(years)s year experience"
+msgid_plural "%(years)s years experience"
+msgstr[0] "опыт %(years)s год"
+msgstr[1] "опыт %(years)s года"
+msgstr[2] "опыт %(years)s лет"
+
+#: local_matcher.py
+#, python-format
+msgid "%(years)s years of experience"
+msgstr "опыт (лет): %(years)s"
+
+#: local_matcher.py
+#, python-format
+msgid "%(years)s years of experience (required: %(req)s)"
+msgstr "Опыт (лет): %(years)s, требуется: %(req)s"
+
+#: _profile_view.html applications_employer.html
+#, python-format
+msgid "%(years)s yr"
+msgid_plural "%(years)s yrs"
+msgstr[0] "%(years)s год"
+msgstr[1] "%(years)s года"
+msgstr[2] "%(years)s лет"
+
+#: job_detail.html
+#, python-format
+msgid "%(years)s+ year"
+msgid_plural "%(years)s+ years"
+msgstr[0] "от %(years)s года"
+msgstr[1] "от %(years)s лет"
+msgstr[2] "от %(years)s лет"
+
+#: job_detail.html
+#, python-format
+msgid "About %(hotel)s"
+msgstr "О компании %(hotel)s"
+
+#: profile_employer.html
+msgid "About the business"
+msgstr "О компании"
+
+#: models.py
+msgid "about the business"
+msgstr "о компании"
+
+#: job_detail.html
+msgid "About the position"
+msgstr "О вакансии"
+
+#: applications_candidate.html models.py
+msgid "Accepted"
+msgstr "Принято"
+
+#: _job_card.html candidate_dashboard.html job_detail.html scoring.py
+msgid "Accommodation"
+msgstr "Проживание"
+
+#: base_auth.html
+msgid "Accommodation and meal filters"
+msgstr "Фильтры проживания и питания"
+
+#: local_matcher.py
+msgid "Accommodation is provided"
+msgstr "Предоставляется жильё"
+
+#: models.py
+msgid "accommodation provided"
+msgstr "предоставляется жильё"
+
+#: base.html
+msgid "Account"
+msgstr "Аккаунт"
+
+#: models.py
+msgid "account type"
+msgstr "тип аккаунта"
+
+#: _profile_view.html profile_employer.html
+msgid "Add changes"
+msgstr "Внести изменения"
+
+#: ai.py local_matcher.py
+msgid "AI analysis supports PDF and DOCX files. Please upload your CV in one of these formats."
+msgstr "ИИ-анализ поддерживает файлы PDF и DOCX. Загрузите резюме в одном из этих форматов."
+
+#: ai_match.html context_processors.py
+msgid "AI matching"
+msgstr "ИИ-подбор"
+
+#: ai.py
+msgid "AI matching is not configured yet (missing ANTHROPIC_API_KEY)."
+msgstr "ИИ-подбор ещё не настроен (нет ANTHROPIC_API_KEY)."
+
+#: ai_match.html candidate_dashboard.html
+msgid "AI reads your CV and picks the open positions that fit you best, with reasons."
+msgstr "ИИ читает ваше резюме и подбирает самые подходящие вакансии с объяснением."
+
+#: applications_candidate.html applications_employer.html
+msgid "All"
+msgstr "Все"
+
+#: employer_dashboard.html
+msgid "All applications"
+msgstr "Все заявки"
+
+#: forms.py
+msgid "All departments"
+msgstr "Все отделы"
+
+#: applications_employer.html
+msgid "All job ads"
+msgstr "Все объявления"
+
+#: candidate_dashboard.html
+msgid "All jobs"
+msgstr "Все вакансии"
+
+#: forms.py
+msgid "All regions"
+msgstr "Все регионы"
+
+#: forms.py
+msgid "All types"
+msgstr "Все типы"
+
+#: register.html
+msgid "Already have an account?"
+msgstr "Уже есть аккаунт?"
+
+#: ai_match.html
+msgid "already in profile"
+msgstr "уже в профиле"
+
+#: forms.py
+msgid "An account with this email already exists."
+msgstr "Аккаунт с этим e-mail уже существует."
+
+#: ai_match.html
+msgid "Analyse again"
+msgstr "Проанализировать снова"
+
+#: ai_match.html
+msgid "Analyse my CV"
+msgstr "Проанализировать резюме"
+
+#: ai_match.html
+#, python-format
+msgid "Analysed %(ago)s"
+msgstr "Анализ: %(ago)s"
+
+#: ai_match.html
+msgid "Analysing your CV…"
+msgstr "Анализируем резюме…"
+
+#: ai_match.html
+msgid "Analysing your CV… (up to a minute)"
+msgstr "Анализируем резюме… (до минуты)"
+
+#: models.py
+msgid "Any type"
+msgstr "Любой тип"
+
+#: models.py
+msgid "application"
+msgstr "заявка"
+
+#: _status_tiles.html
+msgid "Application status"
+msgstr "Статус заявок"
+
+#: applications_employer.html context_processors.py
+msgid "Applications"
+msgstr "Заявки"
+
+#: models.py my_jobs.html
+msgid "applications"
+msgstr "заявок"
+
+#: _job_card.html ai_match.html
+msgid "Applied"
+msgstr "Отклик отправлен"
+
+#: applications_candidate.html
+#, python-format
+msgid "Applied %(date)s"
+msgstr "Отклик: %(date)s"
+
+#: job_detail.html
+msgid "Apply for this position"
+msgstr "Откликнуться на вакансию"
+
+#: job_detail.html
+msgid "Apply now"
+msgstr "Откликнуться"
+
+#: applications_candidate.html
+msgid "Apply to job ads and follow their status here."
+msgstr "Откликайтесь на вакансии и следите за статусом здесь."
+
+#: ai_match.html
+msgid "Apply to my profile"
+msgstr "Применить к профилю"
+
+#: models.py
+msgid "Arabic"
+msgstr "Арабский"
+
+#: forms.py
+msgid "At least 8 characters, not only numbers."
+msgstr "Не менее 8 символов, не только цифры."
+
+#: ai_match.html
+msgid "Automatic suggestions can contain mistakes. Check them before applying."
+msgstr "Автоматические рекомендации могут содержать ошибки. Проверьте их перед применением."
+
+#: _profile_view.html scoring.py views.py
+msgid "Availability"
+msgstr "Доступность"
+
+#: job_form.html
+msgid "Benefits"
+msgstr "Условия"
+
+#: applications_employer.html forms.py market.html
+msgid "Best match"
+msgstr "Лучшее совпадение"
+
+#: employer_dashboard.html
+msgid "Best-matching candidates waiting for review"
+msgstr "Наиболее подходящие кандидаты, ожидающие рассмотрения"
+
+#: ai_match.html applications_candidate.html applications_employer.html candidate_dashboard.html employer_dashboard.html job_detail.html job_form.html market.html my_jobs.html profile_candidate.html profile_employer.html
+msgid "Breadcrumb"
+msgstr "Навигация"
+
+#: ai_match.html applications_candidate.html
+msgid "Browse jobs"
+msgstr "Смотреть вакансии"
+
+#: job_form.html profile_candidate.html profile_employer.html
+msgid "Cancel"
+msgstr "Отмена"
+
+#: context_processors.py
+msgid "Candidate portal"
+msgstr "Портал кандидата"
+
+#: models.py
+msgid "candidate profile"
+msgstr "профиль кандидата"
+
+#: models.py
+msgid "candidate profiles"
+msgstr "профили кандидатов"
+
+#: profile_employer.html
+msgid "Candidates see this information on your job ads."
+msgstr "Кандидаты видят эту информацию в ваших объявлениях."
+
+#: employer_dashboard.html
+msgid "Candidates will appear here when new applications arrive."
+msgstr "Здесь появятся кандидаты, когда будут новые заявки."
+
+#: _photo_card.html
+msgid "Change photo"
+msgstr "Изменить фото"
+
+#: profile_candidate.html
+msgid "choose a file"
+msgstr "выберите файл"
+
+#: forms.py
+msgid "Choose a photo to upload."
+msgstr "Выберите фото для загрузки."
+
+#: forms.py profile_employer.html
+msgid "City"
+msgstr "Город"
+
+#: models.py
+msgid "city"
+msgstr "город"
+
+#: market.html
+msgid "Clear filters"
+msgstr "Сбросить фильтры"
+
+#: job_form.html
+msgid "Clear requirements give candidates more accurate match scores."
+msgstr "Чёткие требования дают кандидатам более точную оценку соответствия."
+
+#: base.html base_auth.html
+msgid "Close"
+msgstr "Закрыть"
+
+#: profile_employer.html
+msgid "Company profile"
+msgstr "Профиль компании"
+
+#: ai_match.html
+msgid "Compares it with every open job ad"
+msgstr "Сравнивает его со всеми открытыми вакансиями"
+
+#: candidate_dashboard.html
+msgid "Complete now"
+msgstr "Заполнить"
+
+#: candidate_dashboard.html job_detail.html
+msgid "Complete profile"
+msgstr "Заполнить профиль"
+
+#: views.py
+#, python-format
+msgid "Complete your profile before applying. Missing: %(fields)s"
+msgstr "Заполните профиль перед откликом. Не хватает: %(fields)s"
+
+#: candidate_dashboard.html job_detail.html
+msgid "Complete your profile to apply"
+msgstr "Заполните профиль, чтобы откликаться"
+
+#: profile_candidate.html profile_employer.html
+msgid "Confirm"
+msgstr "Подтвердить"
+
+#: profile_employer.html
+msgid "Contact person"
+msgstr "Контактное лицо"
+
+#: ai.py
+msgid "Could not connect to the AI service. Please try again later."
+msgstr "Не удалось подключиться к ИИ-сервису. Попробуйте позже."
+
+#: register.html
+msgid "Create account"
+msgstr "Создать аккаунт"
+
+#: register.html
+msgid "Create your account"
+msgstr "Создайте аккаунт"
+
+#: my_jobs.html
+msgid "Create, edit and pause your job ads"
+msgstr "Создавайте, редактируйте и приостанавливайте объявления"
+
+#: profile_candidate.html
+msgid "Current:"
+msgstr "Текущий:"
+
+#: forms.py models.py
+msgid "CV"
+msgstr "Резюме"
+
+#: models.py
+msgid "CV analyses"
+msgstr "Анализы резюме"
+
+#: models.py
+msgid "CV analysis"
+msgstr "Анализ резюме"
+
+#: ai_match.html applications_candidate.html applications_employer.html base.html candidate_dashboard.html context_processors.py employer_dashboard.html market.html my_jobs.html
+msgid "Dashboard"
+msgstr "Панель"
+
+#: my_jobs.html
+msgid "Delete"
+msgstr "Удалить"
+
+#: _photo_card.html
+msgid "Delete photo"
+msgstr "Удалить фото"
+
+#: my_jobs.html
+msgid "Delete this job ad and all its applications?"
+msgstr "Удалить это объявление и все заявки по нему?"
+
+#: _photo_card.html
+msgid "Delete your profile photo?"
+msgstr "Удалить фото профиля?"
+
+#: _profile_view.html job_detail.html models.py scoring.py views.py
+msgid "Department"
+msgstr "Отдел"
+
+#: models.py
+msgid "department"
+msgstr "отдел"
+
+#: models.py
+msgid "description"
+msgstr "описание"
+
+#: login.html
+msgid "Don't have an account?"
+msgstr "Нет аккаунта?"
+
+#: views.py
+msgid "Done! We found jobs that match your CV."
+msgstr "Готово! Мы нашли вакансии, подходящие вашему резюме."
+
+#: profile_candidate.html
+msgid "Drag and drop, or select from your computer. (PDF, DOC, DOCX · max 5 MB)"
+msgstr "Перетащите файл или выберите на компьютере. (PDF, DOC, DOCX · до 5 МБ)"
+
+#: forms.py
+msgid "Duties, working hours, benefits…"
+msgstr "Обязанности, график, условия…"
+
+#: forms.py
+msgid "e.g. Receptionist"
+msgstr "напр. Администратор"
+
+#: _score_card.html
+msgid "Each candidate gets 0–100 points for every job ad they apply to."
+msgstr "Каждый кандидат получает от 0 до 100 баллов за каждую вакансию, на которую откликнулся."
+
+#: job_detail.html my_jobs.html
+msgid "Edit"
+msgstr "Изменить"
+
+#: job_form.html
+msgid "Edit job ad"
+msgstr "Редактировать объявление"
+
+#: candidate_dashboard.html
+msgid "Edit profile"
+msgstr "Редактировать профиль"
+
+#: forms.py
+msgid "Email"
+msgstr "E-mail"
+
+#: models.py
+msgid "email address"
+msgstr "адрес e-mail"
+
+#: forms.py
+msgid "Email or password is incorrect."
+msgstr "Неверный e-mail или пароль."
+
+#: models.py
+msgid "Employer"
+msgstr "Работодатель"
+
+#: job_detail.html
+msgid "Employer account"
+msgstr "Аккаунт работодателя"
+
+#: context_processors.py
+msgid "Employer portal"
+msgstr "Портал работодателя"
+
+#: models.py
+msgid "employer profile"
+msgstr "профиль работодателя"
+
+#: models.py
+msgid "employer profiles"
+msgstr "профили работодателей"
+
+#: models.py
+msgid "employment type"
+msgstr "тип занятости"
+
+#: models.py settings.py
+msgid "English"
+msgstr "Английский"
+
+#: forms.py
+msgid "Enter a valid phone number."
+msgstr "Введите корректный номер телефона."
+
+#: models.py
+msgid "Entertainment"
+msgstr "Анимация"
+
+#: _profile_view.html job_detail.html scoring.py views.py
+msgid "Experience"
+msgstr "Опыт"
+
+#: models.py
+msgid "experience (years)"
+msgstr "опыт (лет)"
+
+#: ai_match.html
+msgid "Explains why each job fits and what is missing"
+msgstr "Объясняет, чем подходит каждая вакансия и чего не хватает"
+
+#: profile_employer.html
+msgid "Fill in your company details and press Confirm to start publishing job ads."
+msgstr "Заполните данные компании и нажмите «Подтвердить», чтобы начать публиковать вакансии."
+
+#: candidate_dashboard.html
+msgid "Fill in your department and languages to get matching jobs."
+msgstr "Укажите отдел и языки, чтобы получать подходящие вакансии."
+
+#: profile_candidate.html
+msgid "Fill in your details and press Confirm to start seeing matching jobs."
+msgstr "Заполните данные и нажмите «Подтвердить», чтобы увидеть подходящие вакансии."
+
+#: register.html
+msgid "Find a job, apply in one click"
+msgstr "Найдите работу и откликайтесь в один клик"
+
+#: applications_candidate.html candidate_dashboard.html
+msgid "Find jobs"
+msgstr "Найти работу"
+
+#: _profile_view.html ai_match.html candidate_dashboard.html
+msgid "Find jobs with your CV"
+msgstr "Найти работу по резюме"
+
+#: forms.py
+msgid "First name"
+msgstr "Имя"
+
+#: local_matcher.py
+#, python-format
+msgid "Fits your availability: %(type)s"
+msgstr "Подходит по занятости: %(type)s"
+
+#: models.py
+msgid "Food & Beverage"
+msgstr "Ресторан и бар"
+
+#: ai_match.html
+msgid "Free analysis on our server: reads your CV in Turkish, English and Russian. With a Claude API key the analysis becomes even smarter."
+msgstr "Бесплатный анализ на нашем сервере: читает резюме на турецком, английском и русском. С ключом Claude API анализ станет ещё умнее."
+
+#: register.html
+msgid "Free for job seekers. Takes about a minute."
+msgstr "Бесплатно для соискателей. Займёт около минуты."
+
+#: models.py
+msgid "Front Office"
+msgstr "Ресепшн"
+
+#: models.py
+msgid "Full-time"
+msgstr "Полный день"
+
+#: models.py
+msgid "German"
+msgstr "Немецкий"
+
+#: job_detail.html
+msgid "Good fit. Improving your profile can raise your score."
+msgstr "Хорошее совпадение. Дополните профиль, чтобы повысить оценку."
+
+#: job_detail.html
+msgid "Great fit! Employers see high-scoring candidates first."
+msgstr "Отличное совпадение! Работодатели первыми видят кандидатов с высокой оценкой."
+
+#: models.py
+msgid "Greek"
+msgstr "Греческий"
+
+#: candidate_dashboard.html
+#, python-format
+msgid "Hello, %(name)s!"
+msgstr "Здравствуйте, %(name)s!"
+
+#: _score_card.html
+msgid "High"
+msgstr "Высокий"
+
+#: base.html base_auth.html
+msgid "Home page"
+msgstr "Главная"
+
+#: forms.py profile_employer.html
+msgid "Hotel / company name"
+msgstr "Название отеля / компании"
+
+#: models.py
+msgid "hotel / company name"
+msgstr "название отеля / компании"
+
+#: apps.py
+msgid "Hotel Job Portal"
+msgstr "Портал вакансий в отелях"
+
+#: models.py
+msgid "Housekeeping"
+msgstr "Хаускипинг"
+
+#: _score_card.html
+msgid "How is the match score calculated?"
+msgstr "Как рассчитывается оценка соответствия?"
+
+#: forms.py
+msgid "I accept the terms of use and privacy policy"
+msgstr "Я принимаю условия использования и политику конфиденциальности"
+
+#: forms.py
+msgid "I am a"
+msgstr "Я"
+
+#: local_matcher.py
+#, python-format
+msgid "I am a hospitality professional in %(dept)s with %(years)s years of experience."
+msgstr "Специалист гостиничной сферы, направление: %(dept)s. Опыт работы (лет): %(years)s."
+
+#: local_matcher.py
+msgid "I am looking for a job in the hospitality industry in Northern Cyprus."
+msgstr "Ищу работу в гостиничной сфере на Северном Кипре."
+
+#: local_matcher.py
+#, python-format
+msgid "I speak %(langs)s."
+msgstr "Языки: %(langs)s."
+
+#: admin.py
+msgid "Important dates"
+msgstr "Важные даты"
+
+#: applications_candidate.html models.py
+msgid "Interview"
+msgstr "Собеседование"
+
+#: candidate_dashboard.html
+msgid "Interview invitations"
+msgstr "Приглашения на собеседование"
+
+#: applications_employer.html
+msgid "Job ad"
+msgstr "Объявление"
+
+#: models.py
+msgid "job ad"
+msgstr "объявление"
+
+#: views.py
+msgid "Job ad deleted."
+msgstr "Объявление удалено."
+
+#: views.py
+msgid "Job ad paused."
+msgstr "Объявление приостановлено."
+
+#: views.py
+msgid "Job ad published."
+msgstr "Объявление опубликовано."
+
+#: views.py
+msgid "Job ad updated."
+msgstr "Объявление обновлено."
+
+#: _profile_view.html context_processors.py job_detail.html market.html
+msgid "Job ads"
+msgstr "Вакансии"
+
+#: models.py
+msgid "job ads"
+msgstr "объявления"
+
+#: models.py
+msgid "Job seeker"
+msgstr "Соискатель"
+
+#: ai_match.html
+msgid "Jobs that match your CV"
+msgstr "Вакансии по вашему резюме"
+
+#: _photo_card.html
+msgid "JPG, PNG or WEBP, max 3 MB."
+msgstr "JPG, PNG или WEBP, до 3 МБ."
+
+#: models.py
+msgid "Kitchen"
+msgstr "Кухня"
+
+#: scoring.py
+msgid "Language"
+msgstr "Язык"
+
+#: _profile_view.html forms.py job_detail.html models.py views.py
+msgid "Languages"
+msgstr "Языки"
+
+#: models.py
+msgid "languages"
+msgstr "языки"
+
+#: local_matcher.py
+#, python-format
+msgid "Languages: %(langs)s"
+msgstr "Языки: %(langs)s"
+
+#: forms.py
+msgid "Last name"
+msgstr "Фамилия"
+
+#: candidate_dashboard.html employer_dashboard.html
+msgid "Latest applications"
+msgstr "Последние заявки"
+
+#: ai_match.html
+msgid "Let AI find your best matches"
+msgstr "Пусть ИИ найдёт лучшие вакансии для вас"
+
+#: login.html register.html
+msgid "Log in"
+msgstr "Войти"
+
+#: login.html
+msgid "Log in to your Otel İş Portalı account."
+msgstr "Войдите в свой аккаунт Otel İş Portalı."
+
+#: base.html
+msgid "Log out"
+msgstr "Выйти"
+
+#: _score_card.html
+msgid "Low"
+msgstr "Низкий"
+
+#: job_detail.html
+msgid "Low fit for this position. Check the requirements."
+msgstr "Низкое совпадение с вакансией. Проверьте требования."
+
+#: base.html
+msgid "Main menu"
+msgstr "Главное меню"
+
+#: employer_dashboard.html
+msgid "Mark reviewed"
+msgstr "Отметить как просмотренную"
+
+#: context_processors.py
+msgid "Market"
+msgstr "Рынок"
+
+#: _job_card.html ai_match.html applications_candidate.html applications_employer.html employer_dashboard.html
+msgid "Match score"
+msgstr "Оценка соответствия"
+
+#: models.py
+msgid "match score"
+msgstr "оценка соответствия"
+
+#: _job_card.html job_detail.html
+msgid "Meals"
+msgstr "Питание"
+
+#: models.py
+msgid "meals provided"
+msgstr "предоставляется питание"
+
+#: _score_card.html
+msgid "Medium"
+msgstr "Средний"
+
+#: models.py
+msgid "minimum experience (years)"
+msgstr "минимальный опыт (лет)"
+
+#: candidate_dashboard.html job_detail.html views.py
+msgid "Missing:"
+msgstr "Не хватает:"
+
+#: _job_card.html ai_match.html job_detail.html
+msgid "month"
+msgstr "мес."
+
+#: models.py
+msgid "monthly salary (GBP)"
+msgstr "зарплата в месяц (GBP)"
+
+#: candidate_dashboard.html profile_candidate.html profile_employer.html
+msgid "My account"
+msgstr "Мой аккаунт"
+
+#: applications_candidate.html candidate_dashboard.html context_processors.py
+msgid "My applications"
+msgstr "Мои заявки"
+
+#: context_processors.py employer_dashboard.html job_form.html my_jobs.html profile_employer.html
+msgid "My listings"
+msgstr "Мои объявления"
+
+#: base.html context_processors.py profile_candidate.html
+msgid "My profile"
+msgstr "Мой профиль"
+
+#: _profile_view.html applications_employer.html
+msgid "Needs accommodation"
+msgstr "Нужно жильё"
+
+#: models.py
+msgid "needs accommodation"
+msgstr "нужно жильё"
+
+#: _job_card.html job_detail.html
+msgid "Negotiable"
+msgstr "По договорённости"
+
+#: my_jobs.html
+msgid "new"
+msgstr "новых"
+
+#: applications_employer.html employer_dashboard.html job_form.html my_jobs.html
+msgid "New job ad"
+msgstr "Новое объявление"
+
+#: ai_match.html
+msgid "New job ads are added every week. Try again later or browse all jobs."
+msgstr "Новые вакансии появляются каждую неделю. Попробуйте позже или посмотрите все вакансии."
+
+#: applications_employer.html forms.py market.html
+msgid "Newest"
+msgstr "Сначала новые"
+
+#: _pagination.html
+msgid "Next"
+msgstr "Далее"
+
+#: _profile_view.html job_detail.html
+msgid "No"
+msgstr "Нет"
+
+#: local_matcher.py
+msgid "No accommodation provided"
+msgstr "Жильё не предоставляется"
+
+#: applications_employer.html
+msgid "No applications here yet"
+msgstr "Здесь пока нет заявок"
+
+#: employer_dashboard.html
+msgid "No applications waiting for review."
+msgstr "Нет заявок, ожидающих рассмотрения."
+
+#: applications_candidate.html candidate_dashboard.html employer_dashboard.html
+msgid "No applications yet"
+msgstr "Пока нет заявок"
+
+#: candidate_dashboard.html
+#, python-format
+msgid "No applications yet. Browse the <a href=\"%(market_url)s\">job ads</a> and apply with one click."
+msgstr "Пока никаких заявок. Посмотрите <a href=\"%(market_url)s\">вакансии</a> и откликайтесь в один клик."
+
+#: employer_dashboard.html
+#, python-format
+msgid "No applications yet. Publish a job ad from <a href=\"%(my_jobs_url)s\">My listings</a>."
+msgstr "Пока никаких заявок. Опубликуйте объявление в разделе <a href=\"%(my_jobs_url)s\">«Мои объявления»</a>."
+
+#: job_detail.html
+msgid "No description provided."
+msgstr "Описание не указано."
+
+#: local_matcher.py
+msgid "No experience required"
+msgstr "Опыт не требуется"
+
+#: market.html
+msgid "No job ads match your search"
+msgstr "По вашему запросу вакансий нет"
+
+#: candidate_dashboard.html
+msgid "No recommendations yet"
+msgstr "Пока нет рекомендаций"
+
+#: ai_match.html
+msgid "No strong matches right now"
+msgstr "Сейчас нет сильных совпадений"
+
+#: local_matcher.py
+msgid "No text was found in your CV. If it is a scanned image, upload a text PDF or DOCX."
+msgstr "В резюме не найден текст. Если это скан, загрузите текстовый PDF или DOCX."
+
+#: ai.py
+msgid "No text was found in your CV. Please upload it as PDF."
+msgstr "В резюме не найден текст. Загрузите его в формате PDF."
+
+#: job_detail.html
+msgid "Not required"
+msgstr "Не требуется"
+
+#: models.py
+msgid "note to employer"
+msgstr "сообщение работодателю"
+
+#: forms.py
+msgid "Note to the employer (optional)"
+msgstr "Сообщение работодателю (необязательно)"
+
+#: employer_dashboard.html
+msgid "Nothing waiting"
+msgstr "Нет ожидающих"
+
+#: views.py
+msgid "Nothing was selected."
+msgstr "Ничего не выбрано."
+
+#: base.html
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: job_detail.html
+msgid "Only job seeker accounts can apply for positions."
+msgstr "Откликаться могут только соискатели."
+
+#: profile_candidate.html
+msgid "Only PDF, DOC or DOCX files are allowed."
+msgstr "Допустимы только файлы PDF, DOC или DOCX."
+
+#: employer_dashboard.html
+msgid "Open job ads"
+msgstr "Открытые объявления"
+
+#: base.html
+msgid "Open menu"
+msgstr "Открыть меню"
+
+#: employer_dashboard.html
+msgid "Overview of your job ads and applications"
+msgstr "Обзор ваших объявлений и заявок"
+
+#: _pagination.html
+#, python-format
+msgid "Page %(n)s of %(total)s"
+msgstr "Страница %(n)s из %(total)s"
+
+#: _pagination.html
+msgid "Pages"
+msgstr "Страницы"
+
+#: models.py
+msgid "Part-time"
+msgstr "Неполный день"
+
+#: forms.py
+msgid "Password"
+msgstr "Пароль"
+
+#: my_jobs.html
+msgid "Pause"
+msgstr "Приостановить"
+
+#: my_jobs.html
+msgid "Paused"
+msgstr "Приостановлено"
+
+#: admin.py
+msgid "Permissions"
+msgstr "Права доступа"
+
+#: admin.py
+msgid "Personal info"
+msgstr "Личная информация"
+
+#: _profile_view.html models.py profile_employer.html
+msgid "Phone"
+msgstr "Телефон"
+
+#: models.py
+msgid "phone"
+msgstr "телефон"
+
+#: forms.py
+msgid "Phone is required."
+msgstr "Укажите телефон."
+
+#: ai_match.html
+msgid "Platform match score"
+msgstr "Оценка платформы"
+
+#: views.py
+msgid "Please check the highlighted fields."
+msgstr "Проверьте отмеченные поля."
+
+#: forms.py
+msgid "Please enter your hotel or company name."
+msgstr "Укажите название отеля или компании."
+
+#: forms.py
+msgid "Please upload your CV."
+msgstr "Загрузите резюме."
+
+#: views.py
+msgid "Please wait a few seconds before running a new analysis."
+msgstr "Подождите несколько секунд перед новым анализом."
+
+#: models.py
+msgid "position"
+msgstr "должность"
+
+#: market.html
+msgid "Position, hotel or keyword"
+msgstr "Должность, отель или ключевое слово"
+
+#: models.py
+msgid "preferred department"
+msgstr "желаемый отдел"
+
+#: _pagination.html
+msgid "Previous"
+msgstr "Назад"
+
+#: _photo_card.html candidate_dashboard.html
+msgid "Profile completeness"
+msgstr "Заполненность профиля"
+
+#: forms.py
+msgid "Profile photo"
+msgstr "Фото профиля"
+
+#: models.py
+msgid "profile photo"
+msgstr "фото профиля"
+
+#: applications_candidate.html
+msgid "Progress"
+msgstr "Прогресс"
+
+#: my_jobs.html
+msgid "Publish"
+msgstr "Опубликовать"
+
+#: job_form.html
+msgid "Publish immediately"
+msgstr "Опубликовать сразу"
+
+#: job_form.html
+msgid "Publish job ad"
+msgstr "Опубликовать объявление"
+
+#: register.html
+msgid "Publish job ads, find staff"
+msgstr "Публикуйте вакансии, находите персонал"
+
+#: my_jobs.html
+msgid "Publish your first job ad and start receiving matched candidates."
+msgstr "Опубликуйте первое объявление и получайте подходящих кандидатов."
+
+#: my_jobs.html
+msgid "Published"
+msgstr "Опубликовано"
+
+#: models.py
+msgid "published"
+msgstr "опубликовано"
+
+#: ai_match.html
+msgid "Reads your CV (PDF or DOCX)"
+msgstr "Читает резюме (PDF или DOCX)"
+
+#: candidate_dashboard.html
+msgid "Recommended for you"
+msgstr "Рекомендуем вам"
+
+#: applications_candidate.html models.py
+msgid "Rejected"
+msgstr "Отклонено"
+
+#: profile_candidate.html
+msgid "Remove"
+msgstr "Удалить"
+
+#: forms.py
+msgid "Repeat password"
+msgstr "Повторите пароль"
+
+#: local_matcher.py
+#, python-format
+msgid "Required language not found in your CV: %(langs)s"
+msgstr "В резюме не найден требуемый язык: %(langs)s"
+
+#: forms.py
+msgid "Required languages"
+msgstr "Требуемые языки"
+
+#: models.py
+msgid "required languages"
+msgstr "требуемые языки"
+
+#: local_matcher.py
+#, python-format
+msgid "Requires %(req)s years of experience, your CV shows %(years)s"
+msgstr "Требуется опыт (лет): %(req)s, в резюме: %(years)s"
+
+#: applications_employer.html
+msgid "Review candidates and update their application status"
+msgstr "Просматривайте кандидатов и обновляйте статус заявок"
+
+#: employer_dashboard.html
+msgid "Review now"
+msgstr "Рассмотреть"
+
+#: applications_candidate.html models.py
+msgid "Reviewed"
+msgstr "Просмотрено"
+
+#: ai_match.html
+msgid "Run a new analysis"
+msgstr "Запустить новый анализ"
+
+#: models.py settings.py
+msgid "Russian"
+msgstr "Русский"
+
+#: job_detail.html
+msgid "Salary"
+msgstr "Зарплата"
+
+#: job_form.html profile_candidate.html profile_employer.html
+msgid "Save changes"
+msgstr "Сохранить изменения"
+
+#: _score_card.html
+msgid "Scores are recalculated when the profile or the job ad changes."
+msgstr "Оценка пересчитывается при изменении профиля или объявления."
+
+#: base.html market.html
+msgid "Search"
+msgstr "Поиск"
+
+#: base.html
+msgid "Search job ads, hotels…"
+msgstr "Поиск по вакансиям, отелям…"
+
+#: models.py
+msgid "Seasonal"
+msgstr "Сезонная"
+
+#: forms.py
+msgid "Select at least one language."
+msgstr "Выберите хотя бы один язык."
+
+#: forms.py
+msgid "Select…"
+msgstr "Выберите…"
+
+#: applications_candidate.html models.py
+msgid "Sent"
+msgstr "Отправлено"
+
+#: _status_tiles.html
+msgid "Sent • Reviewed • Interview • Accepted / Rejected"
+msgstr "Отправлено • Просмотрено • Собеседование • Принято / Отклонено"
+
+#: _profile_view.html views.py
+msgid "Short introduction"
+msgstr "Краткое описание"
+
+#: models.py
+msgid "short introduction"
+msgstr "краткое описание"
+
+#: login.html register.html
+msgid "Show password"
+msgstr "Показать пароль"
+
+#: login.html register.html
+msgid "Sign up"
+msgstr "Регистрация"
+
+#: local_matcher.py
+#, python-format
+msgid "Skills: %(skills)s."
+msgstr "Навыки: %(skills)s."
+
+#: base.html
+msgid "Skip to content"
+msgstr "Перейти к содержимому"
+
+#: ai_match.html
+msgid "Smart matching"
+msgstr "Умный подбор"
+
+#: base_auth.html
+msgid "Smart matching with a 0–100 compatibility score"
+msgstr "Умный подбор с оценкой соответствия от 0 до 100"
+
+#: applications_employer.html market.html
+msgid "Sort"
+msgstr "Сортировка"
+
+#: models.py
+msgid "Spa & Wellness"
+msgstr "Спа и велнес"
+
+#: applications_employer.html
+msgid "Status"
+msgstr "Статус"
+
+#: models.py
+msgid "status"
+msgstr "статус"
+
+#: views.py
+#, python-format
+msgid "Status updated: %(name)s → %(status)s"
+msgstr "Статус обновлён: %(name)s → %(status)s"
+
+#: models.py
+msgid "Technical Service"
+msgstr "Техническая служба"
+
+#: ai.py
+msgid "The AI analysis took too long. Please try again."
+msgstr "Анализ занял слишком много времени. Попробуйте ещё раз."
+
+#: ai.py
+msgid "The AI analysis was incomplete. Please try again."
+msgstr "Анализ не завершён. Попробуйте ещё раз."
+
+#: ai.py
+msgid "The AI could not analyse this document."
+msgstr "ИИ не смог проанализировать этот документ."
+
+#: ai.py
+msgid "The AI could not process this CV. Try uploading it as a PDF."
+msgstr "ИИ не смог обработать это резюме. Попробуйте загрузить PDF."
+
+#: ai.py
+msgid "The AI service is busy right now. Please try again in a minute."
+msgstr "ИИ-сервис сейчас перегружен. Попробуйте через минуту."
+
+#: ai.py
+msgid "The AI service is misconfigured. Please contact the site administrator."
+msgstr "ИИ-сервис настроен неверно. Обратитесь к администратору сайта."
+
+#: ai.py
+msgid "The AI service is temporarily unavailable. Please try again later."
+msgstr "ИИ-сервис временно недоступен. Попробуйте позже."
+
+#: ai.py
+msgid "The AI service key is invalid. Please contact the site administrator."
+msgstr "Ключ ИИ-сервиса недействителен. Обратитесь к администратору сайта."
+
+#: ai.py local_matcher.py
+msgid "The CV file could not be read. Please upload it again as PDF or DOCX."
+msgstr "Не удалось прочитать файл резюме. Загрузите его снова в формате PDF или DOCX."
+
+#: ai.py forms.py profile_candidate.html
+msgid "The file can be at most 5 MB."
+msgstr "Размер файла не должен превышать 5 МБ."
+
+#: job_detail.html
+msgid "The hotel will see your profile, CV and match score."
+msgstr "Отель увидит ваш профиль, резюме и оценку соответствия."
+
+#: _photo_card.html forms.py
+msgid "The photo can be at most 3 MB."
+msgstr "Размер фото не должен превышать 3 МБ."
+
+#: forms.py
+msgid "The photo must be a JPG, PNG or WEBP image."
+msgstr "Фото должно быть в формате JPG, PNG или WEBP."
+
+#: ai.py
+msgid "There are no open job ads to match yet."
+msgstr "Пока нет открытых вакансий для подбора."
+
+#: forms.py
+msgid "This account is inactive."
+msgstr "Этот аккаунт неактивен."
+
+#: views.py
+msgid "This application has already been processed and cannot be withdrawn."
+msgstr "Заявка уже рассмотрена, её нельзя отозвать."
+
+#: views.py
+msgid "This file does not look like a CV. Please upload your CV on your profile."
+msgstr "Этот файл не похож на резюме. Загрузите резюме в профиле."
+
+#: local_matcher.py
+#, python-format
+msgid "This is a %(type)s position"
+msgstr "Тип вакансии: %(type)s"
+
+#: job_detail.html
+msgid "This is your job ad"
+msgstr "Это ваше объявление"
+
+#: local_matcher.py
+#, python-format
+msgid "This job is in a different department: %(dept)s"
+msgstr "Вакансия в другом отделе: %(dept)s"
+
+#: views.py
+msgid "This page is only for employers."
+msgstr "Эта страница только для работодателей."
+
+#: views.py
+msgid "This page is only for job seekers."
+msgstr "Эта страница только для соискателей."
+
+#: employer_dashboard.html
+msgid "Total applications"
+msgstr "Всего заявок"
+
+#: job_detail.html
+msgid "Track my applications"
+msgstr "Отслеживать мои заявки"
+
+#: candidate_dashboard.html
+msgid "Track status"
+msgstr "Отслеживать статус"
+
+#: applications_candidate.html
+msgid "Track the status of every application in one place"
+msgstr "Следите за статусом всех заявок в одном месте"
+
+#: base.html
+msgid "Translate"
+msgstr "Перевод"
+
+#: candidate_dashboard.html
+msgid "Try AI matching"
+msgstr "Попробовать ИИ-подбор"
+
+#: market.html
+msgid "Try removing some filters."
+msgstr "Попробуйте убрать некоторые фильтры."
+
+#: models.py settings.py
+msgid "Turkish"
+msgstr "Турецкий"
+
+#: ai_match.html
+msgid "Update my profile with:"
+msgstr "Обновить профиль:"
+
+#: applications_candidate.html
+#, python-format
+msgid "Updated %(ago)s"
+msgstr "Обновлено: %(ago)s"
+
+#: ai_match.html
+msgid "Upload CV"
+msgstr "Загрузить резюме"
+
+#: _photo_card.html
+msgid "Upload photo"
+msgstr "Загрузить фото"
+
+#: ai.py ai_match.html local_matcher.py
+msgid "Upload your CV on your profile first."
+msgstr "Сначала загрузите резюме в профиле."
+
+#: profile_candidate.html
+msgid "Upload your CV or"
+msgstr "Загрузите резюме или"
+
+#: profile_employer.html
+msgid "Verification pending"
+msgstr "Ожидает проверки"
+
+#: _job_card.html job_detail.html
+msgid "Verified"
+msgstr "Проверено"
+
+#: models.py
+msgid "verified"
+msgstr "проверено"
+
+#: profile_employer.html
+msgid "Verified hotel"
+msgstr "Проверенный отель"
+
+#: base_auth.html
+msgid "Verified hotels and resorts"
+msgstr "Проверенные отели и курорты"
+
+#: candidate_dashboard.html
+msgid "View"
+msgstr "Открыть"
+
+#: candidate_dashboard.html employer_dashboard.html
+msgid "View all"
+msgstr "Смотреть все"
+
+#: ai_match.html
+msgid "View and apply"
+msgstr "Открыть и откликнуться"
+
+#: job_detail.html
+msgid "View applications"
+msgstr "Смотреть заявки"
+
+#: _job_card.html
+msgid "View details"
+msgstr "Подробнее"
+
+#: employer_dashboard.html
+msgid "Waiting for review"
+msgstr "Ожидают рассмотрения"
+
+#: ai_match.html
+msgid "We read your CV and pick the open positions that fit you best, with reasons."
+msgstr "Мы читаем ваше резюме и подбираем самые подходящие вакансии с объяснением."
+
+#: profile_employer.html
+msgid "Website"
+msgstr "Сайт"
+
+#: models.py
+msgid "website"
+msgstr "сайт"
+
+#: login.html
+msgid "Welcome back"
+msgstr "С возвращением"
+
+#: views.py
+msgid "Welcome! Complete your profile to see your match scores."
+msgstr "Добро пожаловать! Заполните профиль, чтобы видеть оценку соответствия."
+
+#: views.py
+msgid "Welcome! Your employer account is ready. Publish your first job ad."
+msgstr "Добро пожаловать! Аккаунт работодателя готов. Опубликуйте первое объявление."
+
+#: ai_match.html
+msgid "What we found in your CV"
+msgstr "Что мы нашли в вашем резюме"
+
+#: applications_employer.html
+msgid "When candidates apply to your job ads, they will appear in this list."
+msgstr "Когда кандидаты откликнутся на ваши объявления, они появятся здесь."
+
+#: forms.py
+msgid "Why are you a good fit for this position?"
+msgstr "Почему вы подходите на эту должность?"
+
+#: market.html
+msgid "With accommodation"
+msgstr "С проживанием"
+
+#: applications_candidate.html
+msgid "Withdraw"
+msgstr "Отозвать"
+
+#: applications_candidate.html
+msgid "Withdraw this application?"
+msgstr "Отозвать эту заявку?"
+
+#: models.py
+msgid "work availability"
+msgstr "доступность для работы"
+
+#: forms.py
+msgid "Write a short introduction about yourself…"
+msgstr "Напишите немного о себе…"
+
+#: _profile_view.html job_detail.html
+msgid "Yes"
+msgstr "Да"
+
+#: job_detail.html
+msgid "You applied"
+msgstr "Вы откликнулись"
+
+#: views.py
+msgid "You can apply to jobs"
+msgstr "Вы можете откликаться"
+
+#: views.py
+msgid "You have already applied for this position."
+msgstr "Вы уже откликнулись на эту вакансию."
+
+#: my_jobs.html
+msgid "You have no job ads yet"
+msgstr "У вас пока нет объявлений"
+
+#: views.py
+msgid "You have reached today's limit of AI analyses. Try again tomorrow."
+msgstr "Вы исчерпали дневной лимит ИИ-анализов. Попробуйте завтра."
+
+#: job_form.html profile_candidate.html profile_employer.html
+msgid "You have unsaved changes"
+msgstr "Есть несохранённые изменения"
+
+#: local_matcher.py
+#, python-format
+msgid "You speak the required languages: %(langs)s"
+msgstr "Вы владеете нужными языками: %(langs)s"
+
+#: views.py
+#, python-format
+msgid "Your application has been sent to %(hotel)s."
+msgstr "Ваш отклик отправлен в %(hotel)s."
+
+#: views.py
+msgid "Your application was withdrawn."
+msgstr "Ваш отклик отозван."
+
+#: candidate_dashboard.html
+msgid "Your applications and the jobs that fit you best"
+msgstr "Ваши заявки и самые подходящие вакансии"
+
+#: base_auth.html
+msgid "Your career in Northern Cyprus hospitality starts here."
+msgstr "Ваша карьера в гостеприимстве Северного Кипра начинается здесь."
+
+#: views.py
+msgid "Your company profile is confirmed. Publish and manage your job ads here."
+msgstr "Профиль компании подтверждён. Здесь вы можете публиковать вакансии и управлять ими."
+
+#: ai_match.html
+msgid "Your CV changed since the last analysis."
+msgstr "Резюме изменилось после последнего анализа."
+
+#: ai.py
+msgid "Your CV is too long to analyse. Please upload a shorter version."
+msgstr "Резюме слишком длинное для анализа. Загрузите более короткую версию."
+
+#: local_matcher.py
+#, python-format
+msgid "Your CV mentions \"%(title)s\""
+msgstr "В резюме упоминается «%(title)s»"
+
+#: views.py
+msgid "Your CV was analysed, but no open job ad fits it well right now."
+msgstr "Резюме проанализировано, но сейчас нет хорошо подходящих вакансий."
+
+#: local_matcher.py
+#, python-format
+msgid "Your experience is in %(dept)s"
+msgstr "Ваш опыт в этой сфере: %(dept)s"
+
+#: job_detail.html
+msgid "Your match score"
+msgstr "Ваша оценка соответствия"
+
+#: profile_candidate.html
+msgid "Your match score is calculated from this information. Keep it up to date."
+msgstr "Оценка соответствия рассчитывается по этим данным. Поддерживайте их актуальными."
+
+#: views.py
+msgid "Your photo has been deleted."
+msgstr "Фото удалено."
+
+#: views.py
+msgid "Your photo has been updated."
+msgstr "Фото обновлено."
+
+#: views.py
+msgid "Your profile has been saved."
+msgstr "Профиль сохранён."
+
+#: views.py
+msgid "Your profile is confirmed. Here are the job ads that fit you best."
+msgstr "Профиль подтверждён. Вот вакансии, которые подходят вам лучше всего."
+
+#: views.py
+msgid "Your profile was updated with the information from your CV."
+msgstr "Профиль обновлён данными из резюме."

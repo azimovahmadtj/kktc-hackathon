@@ -1,0 +1,31 @@
+{% load i18n portal_tags %}
+<section class="card photo-card">
+  {% avatar user "avatar--xl" %}
+  <div class="photo-card__info">
+    <strong>{{ user.display_name }}</strong>
+    <small>{{ user.email }} · {{ user.get_role_display }}</small>
+    <div class="photo-card__actions">
+      <form method="post" action="{% url 'photo_upload' %}" enctype="multipart/form-data">
+        {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}" />
+        <label class="btn btn--sm btn--light photo-pick">
+          {% icon "upload" %}{% if user.photo %}{% translate "Change photo" %}{% else %}{% translate "Upload photo" %}{% endif %}
+          <input type="file" name="photo" accept="image/jpeg,image/png,image/webp" data-autosubmit-file data-max="3145728"
+                 data-size-msg="{% translate 'The photo can be at most 3 MB.' %}" />
+        </label>
+      </form>
+      {% if user.photo %}
+        <form method="post" action="{% url 'photo_delete' %}" data-confirm="{% translate 'Delete your profile photo?' %}">
+          {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}" />
+          <button class="btn btn--sm btn--ghost-danger">{% icon "trash" %}{% translate "Delete photo" %}</button>
+        </form>
+      {% endif %}
+    </div>
+    <small class="muted">{% translate "JPG, PNG or WEBP, max 3 MB." %}</small>
+  </div>
+  {% if completeness_hint %}
+    <div class="completion">
+      <span class="ring" style="--p:{{ completeness }}"><span>{{ completeness }}%</span></span>
+      <div><strong>{% translate "Profile completeness" %}</strong><small>{{ completeness_hint }}</small></div>
+    </div>
+  {% endif %}
+</section>

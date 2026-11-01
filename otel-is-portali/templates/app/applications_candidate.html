@@ -1,0 +1,53 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags humanize %}
+{% block title %}{% translate "My applications" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}"><a href="{% url 'dashboard' %}">{% translate "Dashboard" %}</a>{% icon "chevron-right" %}<span>{% translate "My applications" %}</span></nav>
+    <h1>{% translate "My applications" %}</h1>
+    <p>{% translate "Track the status of every application in one place" %}</p>
+  </div>
+  <a href="{% url 'market' %}?sort=match" class="btn btn--primary">{% icon "search" %}{% translate "Find jobs" %}</a>
+</div>
+
+<div class="chips">
+  <a href="?" class="chip{% if not status %} is-active{% endif %}">{% translate "All" %}</a>
+  {% for t in tiles %}<a href="?status={{ t.key }}" class="chip chip--{{ t.key }}{% if status == t.key %} is-active{% endif %}">{{ t.label }} <b>{{ t.count }}</b></a>{% endfor %}
+</div>
+
+<section class="card card--flush">
+  {% if page_obj.object_list %}
+    <ul class="app-list">
+      {% for app in page_obj %}
+        <li class="app-item app-item--candidate{% if app.id in unseen_ids %} is-new{% endif %}">
+          <div class="app-item__who">
+            <span class="avatar avatar--hotel">{{ app.job.hotel_initials }}</span>
+            <div><a href="{% url 'job_detail' app.job.pk %}"><strong>{{ app.job.title }}</strong></a><small>{{ app.job.hotel_name }} · {{ app.job.get_city_display }}</small></div>
+          </div>
+          <div class="app-item__job"><span>{% blocktranslate with date=app.created_at|date:"j M Y" %}Applied {{ date }}{% endblocktranslate %}</span><small>{% blocktranslate with ago=app.updated_at|naturaltime %}Updated {{ ago }}{% endblocktranslate %}</small></div>
+          <ol class="track" aria-label="{% translate 'Progress' %}">
+            <li class="done">{% translate "Sent" %}</li>
+            <li class="{% if app.status != 'sent' %}done{% endif %}">{% translate "Reviewed" %}</li>
+            <li class="{% if app.status == 'interview' or app.status == 'accepted' %}done{% endif %}">{% translate "Interview" %}</li>
+            <li class="{% if app.status == 'accepted' %}done{% elif app.status == 'rejected' %}fail{% endif %}">{% if app.status == 'rejected' %}{% translate "Rejected" %}{% else %}{% translate "Accepted" %}{% endif %}</li>
+          </ol>
+          <span class="score score--{{ app.score|score_level }}" title="{% translate 'Match score' %}">{{ app.score }}</span>
+          <div class="app-item__actions">
+            <span class="pill pill--{{ app.status }}">{% if app.id in unseen_ids %}<i class="new-dot"></i>{% endif %}{{ app.get_status_display }}</span>
+            {% if app.status == 'sent' %}
+              <form action="{% url 'application_withdraw' app.pk %}" method="post" data-confirm="{% translate 'Withdraw this application?' %}">{% csrf_token %}
+                <button class="btn btn--sm btn--ghost-danger">{% translate "Withdraw" %}</button>
+              </form>
+            {% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    {% translate "No applications yet" as t1 %}{% translate "Apply to job ads and follow their status here." as t2 %}{% translate "Browse jobs" as t3 %}{% url 'market' as murl %}
+    {% include "app/_empty.html" with title=t1 text=t2 action_url=murl action_label=t3 %}
+  {% endif %}
+</section>
+{% include "app/_pagination.html" %}
+{% endblock %}

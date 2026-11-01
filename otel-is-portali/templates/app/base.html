@@ -1,0 +1,117 @@
+{% load static i18n portal_tags %}<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{% translate "Dashboard" %}{% endblock %} · Otel İş Portalı</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#092B55" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23092B55'/%3E%3Cpath d='M18 46V22l14-8 14 8v24' fill='none' stroke='%23fff' stroke-width='4' stroke-linejoin='round'/%3E%3Cpath d='M26 46V34h12v12' fill='none' stroke='%234F9BFF' stroke-width='4'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+</head>
+<body class="app">
+  <a class="skip-link" href="#content">{% translate "Skip to content" %}</a>
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar" id="sidebar" aria-label="{% translate 'Main menu' %}">
+    <a href="{% url 'landing' %}" class="sb-brand">
+      <span class="sb-logo" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><circle cx="15" cy="16" r="10" fill="#4F9BFF"/><circle cx="25" cy="16" r="10" fill="#0866E8" opacity=".85"/><circle cx="20" cy="25" r="10" fill="#8CC2FF" opacity=".8"/></svg>
+      </span>
+      <span class="sb-brand__text"><strong>Otel İş Portalı</strong><small>{{ portal_name }}</small></span>
+    </a>
+
+    <nav class="sb-nav">
+      {% for item in nav_items %}
+        <a href="{% url item.url_name %}" class="sb-link{% if page == item.key %} is-active{% endif %}"{% if page == item.key %} aria-current="page"{% endif %}>
+          {% icon item.icon %}<span>{{ item.label }}</span>
+          {% if item.badge %}<span class="sb-badge">{{ item.badge }}</span>{% endif %}
+        </a>
+      {% endfor %}
+    </nav>
+
+    <svg class="sb-mountains" viewBox="0 0 280 160" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="m1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d6ff2"/><stop offset="1" stop-color="#0a2a5a" stop-opacity="0"/></linearGradient>
+        <linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d4fc4"/><stop offset="1" stop-color="#071f44" stop-opacity="0"/></linearGradient>
+      </defs>
+      <path d="M0 95 C40 60 70 20 95 25 C125 32 140 75 175 70 C215 64 240 50 280 70 V160 H0Z" fill="url(#m1)" opacity=".75"/>
+      <path d="M0 125 C50 95 90 80 130 98 C170 116 210 90 280 105 V160 H0Z" fill="url(#m2)"/>
+    </svg>
+
+    <a href="{% url 'profile' %}" class="sb-user">
+      {% avatar user %}
+      <span class="sb-user__text"><strong>{{ user.first_name|default:user.email }}</strong><small>{{ user.get_role_display }}</small></span>
+      {% icon "chevron-right" %}
+    </a>
+  </aside>
+  <div class="sb-backdrop" id="sbBackdrop" hidden></div>
+
+  <!-- ============ MAIN ============ -->
+  <div class="main">
+    <header class="topbar">
+      <button class="icon-btn tb-menu" id="sbToggle" aria-label="{% translate 'Open menu' %}" aria-controls="sidebar" aria-expanded="false">{% icon "menu" %}</button>
+
+      <form class="tb-search" action="{% url 'market' %}" method="get" role="search">
+        {% icon "search" %}
+        <label for="tbq" class="sr-only">{% translate "Search" %}</label>
+        <input id="tbq" type="search" name="q" value="{{ request.GET.q|default:'' }}" placeholder="{% translate 'Search job ads, hotels…' %}" />
+      </form>
+
+      <div class="tb-actions">
+        <div class="dropdown" data-dropdown>
+          <button class="btn-translate" aria-haspopup="true" aria-expanded="false" data-dropdown-toggle>
+            {% icon "translate" %}<span class="btn-translate__label">{% translate "Translate" %}</span>{% icon "chevron-down" "chev" %}
+          </button>
+          <form class="dd-menu" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.get_full_path }}" />
+            {% get_available_languages as LANGS %}{% get_language_info_list for LANGS as langs %}
+            {% for l in langs %}
+              <button type="submit" name="language" value="{{ l.code }}" class="dd-item{% if l.code == LANGUAGE_CODE %} is-current{% endif %}" lang="{{ l.code }}">
+                {% flag l.code %}<span>{{ l.name_local|capfirst }}</span>
+                {% if l.code == LANGUAGE_CODE %}{% icon "check" "dd-check" %}{% endif %}
+              </button>
+            {% endfor %}
+          </form>
+        </div>
+
+        <a href="{% url 'applications' %}" class="icon-btn tb-bell" aria-label="{% translate 'Notifications' %}{% if notif_count %} ({{ notif_count }}){% endif %}">
+          {% icon "bell" %}{% if notif_count %}<span class="tb-bell__dot"></span>{% endif %}
+        </a>
+
+        <div class="dropdown" data-dropdown>
+          <button class="avatar-btn" aria-haspopup="true" aria-expanded="false" aria-label="{% translate 'Account' %}" data-dropdown-toggle>{% avatar user "avatar--btn" %}</button>
+          <div class="dd-menu dd-menu--account">
+            <div class="dd-head"><strong>{{ user.display_name }}</strong><small>{{ user.email }}</small></div>
+            <a class="dd-item" href="{% url 'profile' %}">{% icon "user" %}<span>{% translate "My profile" %}</span></a>
+            <a class="dd-item" href="{% url 'landing' %}">{% icon "home" %}<span>{% translate "Home page" %}</span></a>
+            <form action="{% url 'logout' %}" method="post">{% csrf_token %}
+              <button type="submit" class="dd-item dd-item--danger">{% icon "logout" %}<span>{% translate "Log out" %}</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content" id="content">
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+
+  <div class="toasts" aria-live="polite">
+    {% for message in messages %}
+      <div class="toast toast--{{ message.tags|default:'info' }}" role="status">
+        <span class="toast__icon">{% if message.tags == 'success' %}{% icon "check" %}{% elif message.tags == 'error' %}{% icon "x" %}{% else %}{% icon "info" %}{% endif %}</span>
+        <span>{{ message }}</span>
+        <button class="toast__close" aria-label="{% translate 'Close' %}">{% icon "x" %}</button>
+      </div>
+    {% endfor %}
+  </div>
+
+  <script src="{% static 'js/app.js' %}" defer></script>
+</body>
+</html>

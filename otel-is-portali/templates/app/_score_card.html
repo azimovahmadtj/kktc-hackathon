@@ -1,0 +1,18 @@
+{% load i18n portal_tags %}
+<aside class="card score-card">
+  <header class="card__head card__head--top">
+    <h2>{% icon "calc" "card__icon" %}{% translate "How is the match score calculated?" %}</h2>
+    <span class="tip" tabindex="0" aria-label="{% translate 'Scores are recalculated when the profile or the job ad changes.' %}" data-tip="{% translate 'Scores are recalculated when the profile or the job ad changes.' %}">{% icon "info" %}</span>
+  </header>
+  <p class="score-card__lead">{% translate "Each candidate gets 0–100 points for every job ad they apply to." %}</p>
+  <ul class="weights">
+    {% for w in weights %}
+      <li><span>{{ w.label }}</span><span class="bar"><i style="--w:{{ w.percent }}%"></i></span><b>{{ w.max }}</b></li>
+    {% endfor %}
+  </ul>
+  <ul class="legend">
+    <li><i class="dot dot--high"></i>75+ {% translate "High" %}</li>
+    <li><i class="dot dot--medium"></i>50–74 {% translate "Medium" %}</li>
+    <li><i class="dot dot--low"></i>0–49 {% translate "Low" %}</li>
+  </ul>
+</aside>

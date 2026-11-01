@@ -1,0 +1,104 @@
+{% extends "app/base.html" %}
+{% load i18n portal_tags humanize %}
+{% block title %}{% translate "Dashboard" %}{% endblock %}
+{% block content %}
+<div class="page-head">
+  <div>
+    <nav class="crumbs" aria-label="{% translate 'Breadcrumb' %}">
+      <span>{{ user.employer_profile.company_name }}</span>{% icon "chevron-right" %}<span>{% translate "Dashboard" %}</span>
+    </nav>
+    <h1>{% translate "Dashboard" %}</h1>
+    <p>{% translate "Overview of your job ads and applications" %}</p>
+  </div>
+  <div class="page-actions">
+    <a href="{% url 'applications' %}" class="btn btn--white">{% icon "grid" %}{% translate "All applications" %}</a>
+    <a href="{% url 'job_create' %}" class="btn btn--primary">{% icon "plus" %}{% translate "New job ad" %}</a>
+  </div>
+</div>
+
+<div class="kpis">
+  <article class="kpi kpi--blue">
+    <span class="kpi__icon">{% icon "megaphone" %}</span>
+    <div class="kpi__body">
+      <h2>{% translate "Open job ads" %}</h2>
+      <p class="kpi__num" data-count="{{ open_jobs }}">{{ open_jobs }}</p>
+      <p class="kpi__sub">{% blocktranslate %}{{ total_jobs }} ads in total{% endblocktranslate %} • <a href="{% url 'my_jobs' %}">{% translate "My listings" %}</a></p>
+    </div>
+    <span class="kpi__bg">{% icon "megaphone" %}</span>
+  </article>
+  <article class="kpi kpi--green">
+    <span class="kpi__icon">{% icon "layers" %}</span>
+    <div class="kpi__body">
+      <h2>{% translate "Total applications" %}</h2>
+      <p class="kpi__num" data-count="{{ total_apps }}">{{ total_apps }}</p>
+      <p class="kpi__sub">{% if total_apps %}{% blocktranslate %}{{ apps_this_week }} in the last 7 days{% endblocktranslate %}{% else %}{% translate "No applications yet" %}{% endif %}</p>
+    </div>
+    <span class="kpi__bg">{% icon "layers" %}</span>
+  </article>
+  <article class="kpi kpi--purple">
+    <span class="kpi__icon">{% icon "eye" %}</span>
+    <div class="kpi__body">
+      <h2>{% translate "Waiting for review" %}</h2>
+      <p class="kpi__num" data-count="{{ pending }}">{{ pending }}</p>
+      <p class="kpi__sub">{% if pending %}<a href="{% url 'applications' %}?status=sent&sort=score">{% translate "Review now" %}</a>{% else %}{% translate "Nothing waiting" %}{% endif %}</p>
+    </div>
+    <span class="kpi__bg">{% icon "eye" %}</span>
+  </article>
+</div>
+
+{% include "app/_status_tiles.html" with tiles=status_tiles %}
+
+<div class="grid-main">
+  <section class="card">
+    <header class="card__head">
+      <h2>{% icon "users" "card__icon" %}{% translate "Best-matching candidates waiting for review" %}</h2>
+    </header>
+    {% if top_pending %}
+      <ul class="rows">
+        {% for app in top_pending %}
+          <li class="row">
+            {% avatar app.candidate "avatar--soft" %}
+            <div class="row__main">
+              <strong>{{ app.candidate.display_name }}</strong>
+              <small>{{ app.job.title }} · {% with p=app.candidate.candidate_profile %}{% blocktranslate count years=p.experience_years %}{{ years }} year experience{% plural %}{{ years }} years experience{% endblocktranslate %}{% if p.languages %} · {{ p.language_labels|join:", " }}{% endif %}{% endwith %}</small>
+            </div>
+            <span class="score score--{{ app.score|score_level }}" title="{% translate 'Match score' %}">{{ app.score }}</span>
+            <form action="{% url 'application_status' app.pk %}" method="post" class="row__actions">
+              {% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}" />
+              <a class="btn btn--sm btn--light" href="{% url 'application_cv' app.pk %}" target="_blank" rel="noopener">{% icon "file" %}CV</a>
+              <button class="btn btn--sm btn--primary" name="status" value="reviewed">{% translate "Mark reviewed" %}</button>
+            </form>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {% translate "No applications waiting for review." as empty_title %}
+      {% translate "Candidates will appear here when new applications arrive." as empty_text %}
+      {% include "app/_empty.html" with title=empty_title text=empty_text %}
+    {% endif %}
+  </section>
+
+  {% include "app/_score_card.html" %}
+</div>
+
+<section class="card">
+  <header class="card__head">
+    <h2>{% icon "clock" "card__icon" %}{% translate "Latest applications" %}</h2>
+    <a href="{% url 'applications' %}" class="link-arrow">{% translate "View all" %}{% icon "arrow-right" %}</a>
+  </header>
+  {% if recent %}
+    <ul class="rows">
+      {% for app in recent %}
+        <li class="row">
+          {% avatar app.candidate "avatar--soft" %}
+          <div class="row__main"><strong>{{ app.candidate.display_name }}</strong><small>{{ app.job.title }} · {{ app.created_at|naturaltime }}</small></div>
+          <span class="score score--{{ app.score|score_level }}">{{ app.score }}</span>
+          <span class="pill pill--{{ app.status }}">{{ app.get_status_display }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty-line">{% icon "briefcase" %}{% url 'my_jobs' as my_jobs_url %}{% blocktranslate %}No applications yet. Publish a job ad from <a href="{{ my_jobs_url }}">My listings</a>.{% endblocktranslate %}</p>
+  {% endif %}
+</section>
+{% endblock %}

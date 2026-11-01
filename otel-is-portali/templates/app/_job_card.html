@@ -1,0 +1,27 @@
+{% load i18n portal_tags %}
+<article class="job-card">
+  <a href="{% url 'job_detail' job.pk %}" class="job-card__media" tabindex="-1" aria-hidden="true">
+    <img onerror="this.style.visibility='hidden'" src="{{ job.department|dept_photo }}" alt="" loading="lazy" decoding="async" />
+    <span class="pill {% if job.employment_type == 'seasonal' %}pill--gold{% else %}pill--white{% endif %}">{{ job.get_employment_type_display }}</span>
+    <span class="job-card__hotel"><span class="avatar avatar--hotel avatar--xs">{{ job.hotel_initials }}</span>{{ job.hotel_name }}</span>
+  </a>
+  <div class="job-card__body">
+    <div class="job-card__top">
+      <div>
+        <h3><a href="{% url 'job_detail' job.pk %}">{{ job.title }}</a></h3>
+        <p class="job-card__meta">{% icon "pin" %}{{ job.get_city_display }} · {{ job.get_department_display }}</p>
+      </div>
+      {% if job.match %}<span class="ring ring--{{ job.match.level }}" style="--p:{{ job.match.total }}" title="{% translate 'Match score' %}"><span>{{ job.match.total }}%</span></span>{% endif %}
+    </div>
+    <div class="tags">
+      {% if job.housing %}<span class="tag tag--blue">{% icon "home" %}{% translate "Accommodation" %}</span>{% endif %}
+      {% if job.meals %}<span class="tag tag--blue">{% icon "meal" %}{% translate "Meals" %}</span>{% endif %}
+      {% if job.employer.employer_profile.is_verified %}<span class="tag tag--green">{% icon "shield" %}{% translate "Verified" %}</span>{% endif %}
+    </div>
+    <div class="job-card__foot">
+      <p class="salary">{% if job.salary %}{{ job.salary|money }} <small>/ {% translate "month" %}</small>{% else %}<small>{% translate "Negotiable" %}</small>{% endif %}</p>
+      {% if job.pk in applied %}<span class="pill pill--accepted">{% icon "check" %}{% translate "Applied" %}</span>
+      {% else %}<a href="{% url 'job_detail' job.pk %}" class="btn btn--sm btn--primary">{% translate "View details" %}</a>{% endif %}
+    </div>
+  </div>
+</article>
